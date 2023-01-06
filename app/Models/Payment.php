@@ -14,5 +14,11 @@ class Payment extends Model
     protected $fillable = [
         'method',
         'no',
+        'name'
     ];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }

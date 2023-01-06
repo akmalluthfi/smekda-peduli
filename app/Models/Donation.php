@@ -19,7 +19,17 @@ class Donation extends Model
         'status',
         'user_id',
         'campaign_id',
-        'payment_id'
+        'payment_id',
+        'as_anonymous'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'as_anonymous' => 'boolean',
     ];
 
     public function campaign()
@@ -30,5 +40,10 @@ class Donation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
     }
 }

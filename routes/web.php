@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CampaignController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Models\Campaign;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +23,15 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    dd('as');
+    // test
+});
+
+// Route Admim
+Route::prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+
+    Route::resource('/campaigns', CampaignController::class)->scoped([
+        'campaign' => 'slug'
+    ]);
+    Route::resource('/payments', PaymentController::class);
 });

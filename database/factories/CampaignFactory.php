@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Campaign>
@@ -16,12 +17,15 @@ class CampaignFactory extends Factory
      */
     public function definition()
     {
+        $title = fake()->sentence();
         return [
-            'title' => fake()->sentence(),
+            'title' => $title,
+            'slug' => Str::slug($title) . '-' . time(),
             'image' => null,
-            'target_amount' => rand(1, 10) . 1000000,
-            'duration' => date('Y-m-d H:i:s', strtotime('+1 month')),
-            'description' => fake()->text(400)
+            'target_amount' => rand(1, 3) * 1000000,
+            'duration' => date('Y-m-d H:i:s', strtotime("+" . rand(1, 6) . "month")),
+            'description' => fake()->text(400),
+            'status' => 'open',
         ];
     }
 }

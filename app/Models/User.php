@@ -30,6 +30,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_admin' => 'boolean',
+    ];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

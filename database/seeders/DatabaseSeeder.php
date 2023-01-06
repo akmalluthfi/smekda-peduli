@@ -24,7 +24,16 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Campaign::factory(20)->create();
 
-        \App\Models\Donation::factory(50)->create();
+        \App\Models\Campaign::factory(10)->create([
+            'status' => 'completed'
+        ]);
+
+        \App\Models\Donation::factory(100)->create([
+            'status' => 'success'
+        ]);
+        \App\Models\Donation::factory(50)->create([
+            'status' => fake()->randomElement(['pending', 'failed'])
+        ]);
 
         \App\Models\Comment::factory(30)->create();
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('method');
             $table->string('no');
+            $table->string('name');
             $table->timestamps();
         });
     }

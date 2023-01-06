@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('amount');
             $table->enum('status', ['success', 'pending', 'failed']);
+            $table->boolean('as_anonymous')->default(true);
             $table->foreignId('user_id');
             $table->foreignId('campaign_id');
             $table->foreignId('payment_id');

@@ -20,7 +20,8 @@ class PaymentSeeder extends Seeder
         foreach ($methods as $method) {
             Payment::create([
                 'method' => $method,
-                'no' => fake()->randomNumber(9, true)
+                'no' => fake()->randomNumber(9, true),
+                'name' => 'SMKN 2 SBY'
             ]);
         }
     }

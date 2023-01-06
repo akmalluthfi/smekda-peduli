@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->integer('target_amount');
             $table->date('duration');
             $table->text('description');
+            $table->enum('status', ['open', 'completed']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
