@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
     --dark-blue: #0279bb;
@@ -24,6 +24,15 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.btn-blue {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--dark-blue);
+    --bs-btn-border-color: var(--dark-blue);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--light-blue);
 }
 
 /* navbar */
