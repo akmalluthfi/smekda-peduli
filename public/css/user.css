@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --dark-blue: #0279bb;
+    --light-blue: #62a1d4;
+    --dark-yellow: #facc43;
+    --light-yellow: #fcf507;
+    --red: #d7271a;
+    --dark-indigo: #5952b2;
+    --light-indigo: #8e95cb;
+    --bg-color: #f6f9ff;
+    --text-color: #45545b;
+    --carousel-min-height: 200px;
+    --carousel-max-height: 300px;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background: var(--bg-color);
+}
+
+/* utils */
+.img-responsive {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* navbar */
+.navbar-nav .nav-link {
+    color: var(--text-color);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--dark-blue);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--dark-blue);
+}
+
+.navbar .profile-toogle::after {
+    content: none;
+}
+
+/* main */
+#main-content {
+    margin-top: 3.5rem;
+    min-height: calc(100vh - 113px);
+}
+
+/* corousel */
+.carousel-inner {
+    min-height: var(--carousel-min-height);
+    max-height: var(--carousel-max-height);
+}
+
+.carousel-item img {
+    min-height: var(--carousel-min-height);
+    max-height: var(--carousel-max-height);
+    object-fit: cover;
+    object-position: center;
+}

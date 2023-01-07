@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $completed_campaings = Campaign::completed()->count();
         $open_campaigns = Campaign::open()->count();
 
-        return view('admin.sections.static.dashboard', [
+        return view('admin.sections.dashboard', [
             'campaigns' => [
                 'total' => $completed_campaings + $open_campaigns,
                 'open' => $open_campaigns,
