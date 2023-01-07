@@ -14,4 +14,9 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    public function settings()
+    {
+        return view('user.sections.user.settings');
+    }
 }

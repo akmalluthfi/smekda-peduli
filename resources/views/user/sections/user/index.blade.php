@@ -7,7 +7,7 @@
   <div class="col-md-8 py-3">
     <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title">Profile</h5>
+        <h5 class="card-title">Profil Saya</h5>
         <hr>
         <form>
           <div class="mb-3">
