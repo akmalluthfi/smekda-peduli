@@ -35,6 +35,10 @@ body {
     --bs-btn-hover-bg: var(--light-blue);
 }
 
+.bg-dark-blue {
+    background-color: var(--dark-blue);
+}
+
 /* navbar */
 .navbar-nav .nav-link {
     color: var(--text-color);
@@ -69,4 +73,21 @@ body {
     max-height: var(--carousel-max-height);
     object-fit: cover;
     object-position: center;
+    background-color: rgb(134, 142, 150);
+}
+
+/* Campaign */
+.link-campaign {
+    color: var(--text-color);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 48px;
+}
+
+.link-campaign:hover {
+    color: var(--text-color);
 }
