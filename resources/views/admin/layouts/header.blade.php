@@ -1,10 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center justify-content-between">
-  {{-- <div class="d-flex align-items-center justify-content-between">
-        
-    </div>
-    {{-- End Logo --}} --}}
+
   <a href="/" class="logo d-flex align-items-center order-1 order-lg-0">
-    <img src="/img/apple-touch-icon.png" alt="Logo Smekda Peduli" />
+    <img src="/apple-touch-icon.png" alt="Logo Smekda Peduli" />
     <span class="">Smekda Peduli</span>
   </a>
 
@@ -71,5 +68,5 @@
       {{-- End Profile Nav --}}
     </ul>
   </nav>
-  {{-- End Icons Navigation --}}
+
 </header>

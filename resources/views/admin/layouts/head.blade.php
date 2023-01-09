@@ -15,4 +15,4 @@
 <link href="/icons/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 {{-- Template Main CSS File --}}
-<link href="/css/admin.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">

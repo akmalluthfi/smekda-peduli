@@ -1,3 +1,5 @@
-<footer class="py-3 px-1 text-center border-top">
-  <small>&copy; Copyright <span class="fw-bold">Smekda Peduli</span> {{ date('Y') }}. All Rights Reserved</small>
+<footer id="footer" class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Smekda Peduli</span></strong> {{ date('Y') }}. All Rights Reserved
+  </div>
 </footer>

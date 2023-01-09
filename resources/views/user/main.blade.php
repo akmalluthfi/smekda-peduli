@@ -19,7 +19,7 @@
   <link href="/icons/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
   {{-- Template Main CSS File --}}
-  <link href="/css/user.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
 
 </head>
 

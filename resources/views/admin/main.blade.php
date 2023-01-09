@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  @include('admin.layouts.head');
+  @include('admin.layouts.head')
 </head>
 
 <body>
