@@ -11,8 +11,8 @@
   <meta content="Donation App" name="keywords" />
 
   {{-- Favicons --}}
-  <link href="favicon.png" rel="icon" />
-  <link href="apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/favicon.ico" rel="icon" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
 
   {{-- Vendor CSS Files --}}
   <link href="/css/bootstrap.min.css" rel="stylesheet">
