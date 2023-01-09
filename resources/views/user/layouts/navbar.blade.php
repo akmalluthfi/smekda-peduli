@@ -26,50 +26,54 @@
     </div>
 
 
-    @auth
-      <div class="dropdown">
-        <a class="dropdown-toggle profile-toogle" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <img src="/img/default.png" alt=" Profile" class="rounded-circle" height="40" />
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/user">
-              <i class="bi bi-person me-2"></i>
-              <span>Profile Saya</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="user/settings">
-              <i class="bi bi-gear me-2"></i>
-              <span>Pengaturan</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/help">
-              <i class="bi bi-question-circle me-2"></i>
-              <span>Bantuan</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center text-danger" href="/logout">
-              <i class="bi bi-box-arrow-right me-2"></i>
-              <span>Keluar</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    @endauth
 
-    @guest
-      <div class="order-2 order-md-3">
+    <div class="order-2 order-md-3">
+      @guest
         <a href="/login" class="btn btn-outline-blue">Masuk</a>
-        <a href="/register" class="btn btn-blue d-none d-md-inline-block ms-2">Daftar</a>
-      </div>
-    @endguest
+        <a href="/registration" class="btn btn-blue d-none d-md-inline-block ms-2">Daftar</a>
+      @endguest
+
+      @auth
+        <div class="dropdown">
+          <a class="dropdown-toggle profile-toogle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="/img/default.png" alt=" Profile" class="rounded-circle" height="40" />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/user">
+                <i class="bi bi-person me-2"></i>
+                <span>Profile Saya</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="user/settings">
+                <i class="bi bi-gear me-2"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/help">
+                <i class="bi bi-question-circle me-2"></i>
+                <span>Bantuan</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <form action="/logout" method="POST">
+                @method('delete')
+                <button type="submit" class="dropdown-item d-flex align-items-center text-danger" href="/logout">
+                  <i class="bi bi-box-arrow-right me-2"></i>
+                  <span>Keluar</span>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      @endauth
+    </div>
 
   </div>
 </nav>

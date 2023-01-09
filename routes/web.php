@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Models\Campaign;
@@ -32,6 +33,13 @@ Route::prefix('user')->group(function () {
 Route::get('/test', function () {
     // test
 });
+
+// Route Auth
+Route::get('registration', [AuthController::class, 'registration']);
+Route::post('registration', [AuthController::class, 'store']);
+Route::get('login', [AuthController::class, 'login']);
+Route::post('login', [AuthController::class, 'authenticate']);
+Route::delete('logout', [AuthController::class, 'logout']);
 
 // Route Admim
 Route::prefix('admin')->group(function () {
