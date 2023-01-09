@@ -2,37 +2,37 @@
 <html lang="en">
 
 <head>
-    @include('admin.layouts.head');
+  @include('admin.layouts.head');
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
-    @include('admin.layouts.header')
-    <!-- End Header -->
+  {{-- ======= Header ======= --}}
+  @include('admin.layouts.header')
+  {{-- End Header --}}
 
-    <!-- ======= Sidebar ======= -->
-    @include('admin.layouts.sidebar')
-    <!-- End Sidebar-->
+  {{-- ======= Sidebar ======= --}}
+  @include('admin.layouts.sidebar')
+  {{-- End Sidebar --}}
 
-    <div class="d-flex flex-column justify-content-between min-vh-100" style="margin-top: -24px">
-        <main id="main" class="main">
+  <div class="d-flex flex-column justify-content-between min-vh-100" style="margin-top: -24px">
+    <main id="main" class="main">
 
-            @yield('content')
+      @yield('content')
 
-        </main>
-        <!-- End #main -->
+    </main>
+    {{-- End #main --}}
 
-        <!-- ======= Footer ======= -->
-        @include('admin.layouts.footer')
-        <!-- End Footer -->
-    </div>
+    {{-- ======= Footer ======= --}}
+    @include('admin.layouts.footer')
+    {{-- End Footer --}}
+  </div>
 
-    {{-- button scroll to top --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-        <i class="bi bi-arrow-up-short"></i>
-    </a>
+  {{-- button scroll to top --}}
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-    @include('admin.layouts.foot')
+  @include('admin.layouts.foot')
 </body>
 
 </html>

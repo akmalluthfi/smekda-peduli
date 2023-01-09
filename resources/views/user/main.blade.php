@@ -7,11 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title') - Smekda Peduli</title>
 
-  <!-- Vendor CSS Files -->
+  {{-- Vendor CSS Files --}}
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/icons/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  {{-- Template Main CSS File --}}
   <link href="/css/user.css" rel="stylesheet">
 
 </head>
@@ -28,7 +28,7 @@
 
   @include('user.layouts.footer')
 
-  <!-- Template Main JS File -->
+  {{-- Template Main JS File --}}
   <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 

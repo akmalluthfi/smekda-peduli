@@ -10,11 +10,11 @@
   <meta content="Donation App" name="description" />
   <meta content="Donation App" name="keywords" />
 
-  <!-- Favicons -->
+  {{-- Favicons --}}
   <link href="favicon.png" rel="icon" />
   <link href="apple-touch-icon.png" rel="apple-touch-icon" />
 
-  <!-- Vendor CSS Files -->
+  {{-- Vendor CSS Files --}}
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/icons/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
