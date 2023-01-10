@@ -31,14 +31,13 @@
         <div class="container">
           <div class="row justify-content-center">
             <div
-              class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 d-flex flex-column align-items-center justify-content-center">
+              class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 d-flex flex-column align-items-center justify-content-center">
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="/img/logo.png" alt="Logo smekda peduli" />
                   <span class="d-none d-lg-block">Smekda Peduli</span>
                 </a>
               </div>
-              {{-- End Logo --}}
 
               @yield('content')
             </div>
