@@ -89,7 +89,7 @@ class Campaign extends Model
      */
     public function scopeOpen(Builder $query)
     {
-        $query->where('status', 'open');
+        return $query->where('status', 'open');
     }
 
     /**
@@ -100,7 +100,7 @@ class Campaign extends Model
      */
     public function scopeCompleted(Builder $query)
     {
-        $query->where('status', 'completed');
+        return $query->where('status', 'completed');
     }
 
     /**
@@ -111,7 +111,7 @@ class Campaign extends Model
      */
     public function scopeSearch(Builder $query, $search)
     {
-        $query->where('title', 'like', '%' . $search . '%');
+        return $query->where('title', 'like', '%' . $search . '%');
     }
 
     public function getFormattedTargetAmountAttribute()

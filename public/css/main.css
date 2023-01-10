@@ -1196,6 +1196,10 @@ a.card-title:hover {
     color: var(--dark-blue);
 }
 
+.bg-blue {
+    background-color: var(--dark-blue) !important;
+}
+
 button.color-primary:hover:active {
     color: var(--dark-blue) !important;
 }
