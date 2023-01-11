@@ -20,30 +20,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('user')->group(function () {
-    Route::get('/', [UserController::class, 'index']);
-    Route::get('/settings', [UserController::class, 'settings']);
-    Route::get('/donations', [UserController::class, 'donations']);
-});
-
-Route::get('/test', function () {
-    // test
+Route::group([
+    'prefix' => 'user',
+    'middleware' => 'auth'
+], function () {
+    Route::get('/', [UserController::class, 'index'])->name('user.profile');
+    Route::get('/settings', [UserController::class, 'settings'])->name('user.settings');
+    Route::get('/donations', [UserController::class, 'donations'])->name('user.donations');
 });
 
 // Route Auth
-Route::get('registration', [AuthController::class, 'registration']);
-Route::post('registration', [AuthController::class, 'store']);
-Route::get('login', [AuthController::class, 'login']);
-Route::post('login', [AuthController::class, 'authenticate']);
-Route::delete('logout', [AuthController::class, 'logout']);
+Route::middleware('guest')->group(function () {
+    Route::get('registration', [AuthController::class, 'registration'])->name('registration');
+    Route::post('registration', [AuthController::class, 'store']);
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticate']);
+});
+Route::delete('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Route Campaign
 Route::resource('campaigns', CampaignController::class)->names('user.campaigns');
 
 // Route Admim
-Route::prefix('admin')->group(function () {
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => 'auth.admin'
+], function () {
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::resource('/campaigns', AdminCampaignController::class)->scoped([

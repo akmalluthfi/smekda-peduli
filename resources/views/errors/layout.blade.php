@@ -28,7 +28,7 @@
       <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
         <h1>@yield('code')</h1>
         <h2>@yield('message')</h2>
-        <a class="btn" href="{{ Request::is('admin*') ? '/admin' : '/' }}">Back to home</a>
+        <a class="btn" href="@yield('location', Request::is('admin*') ? '/admin' : '/')">Back to home</a>
         <img src="/assets/img/not-found.svg" class="img-fluid py-5" alt="Page Not Found" />
       </section>
     </div>
