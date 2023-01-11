@@ -5,19 +5,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-    --bg-body: #f6f9ff;
+    --bg-body: #feffff;
     --color-body: #444444;
     --color-primary: #012970;
     scroll-behavior: smooth;
 
-    --dark-blue: #0279bb;
-    --light-blue: #62a1d4;
+    --dark-blue: #0279bd;
+    --light-blue: #609fd2;
     --dark-yellow: #facc43;
     --light-yellow: #fcf507;
-    --red: #d7271a;
-    --dark-indigo: #5952b2;
+    --red: #dc241a;
+    --dark-indigo: #6c64c7;
     --light-indigo: #8e95cb;
-    --bg-color: #f6f9ff;
     --text-color: #45545b;
     --carousel-min-height: 200px;
     --carousel-max-height: 300px;
@@ -25,7 +24,7 @@
 
 body {
     font-family: "Nunito", sans-serif;
-    background: #f6f9ff;
+    background: var(--bg-body);
     color: #444444;
 }
 
@@ -158,7 +157,7 @@ h6 {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #f6f9ff;
+    background-color: var(--bg-body);
 }
 
 @media (min-width: 768px) {
@@ -530,7 +529,7 @@ a.card-title:hover {
 }
 
 .header-nav .notifications .notification-item:hover {
-    background-color: #f6f9ff;
+    background-color: var(--bg-body);
 }
 
 .header-nav .messages {
@@ -565,7 +564,7 @@ a.card-title:hover {
 }
 
 .header-nav .messages .message-item:hover {
-    background-color: #f6f9ff;
+    background-color: var(--bg-body);
 }
 
 .header-nav .profile {
@@ -598,7 +597,7 @@ a.card-title:hover {
 }
 
 .header-nav .profile .dropdown-item:hover {
-    background-color: #f6f9ff;
+    background-color: var(--bg-body);
 }
 
 /*--------------------------------------------------------------
@@ -698,7 +697,7 @@ a.card-title:hover {
 
 .sidebar-nav .nav-link.active {
     color: var(--dark-blue);
-    background: #f6f9ff;
+    background: var(--bg-body);
 }
 
 .sidebar-nav .nav-link i {
@@ -713,7 +712,7 @@ a.card-title:hover {
 
 .sidebar-nav .nav-link:hover {
     color: var(--dark-blue);
-    background: #f6f9ff;
+    background: var(--bg-body);
 }
 
 .sidebar-nav .nav-link:hover i {

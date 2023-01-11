@@ -35,7 +35,10 @@ class DatabaseSeeder extends Seeder
             'status' => fake()->randomElement(['pending', 'failed'])
         ]);
 
-        \App\Models\Comment::factory(30)->create();
+        \App\Models\Comment::factory(50)->create();
+        \App\Models\Comment::factory(100)->create([
+            'user_id' => null
+        ]);
 
         $this->call([
             PaymentSeeder::class,

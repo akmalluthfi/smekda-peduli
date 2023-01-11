@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-md bg-white shadow-sm">
   <div class="container-fluid px-4">
-    <a class="navbar-brand order-1 order-md-0 me-0" href="#">
-      <img src="/apple-touch-icon.png" alt="Logo Smekda Peduli" height="26" class="d-inline-block align-text-top">
+    <a class="navbar-brand order-1 order-md-0 me-0" href="/">
+      <img src="/apple-touch-icon.png" alt="Logo Smekda Peduli" height="28" class="d-inline-block align-text-top">
       <span class="fw-bold">Smekda Peduli</span>
     </a>
 
