@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4e452488553d30b4f5208cdbafcf5d2",
+    "content-hash": "f24fe38c18890cb7b6a905caa2bef5b6",
     "packages": [
         {
             "name": "brick/math",
@@ -1680,6 +1680,61 @@
             "time": "2022-04-17T13:12:02+00:00"
         },
         {
+            "name": "midtrans/midtrans-php",
+            "version": "2.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Midtrans/midtrans-php.git",
+                "reference": "a1ad0c824449ca8c68c4cf11b3417ad518311d2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Midtrans/midtrans-php/zipball/a1ad0c824449ca8c68c4cf11b3417ad518311d2b",
+                "reference": "a1ad0c824449ca8c68c4cf11b3417ad518311d2b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*",
+                "psy/psysh": "0.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Midtrans\\": "Midtrans/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andri Setiawan",
+                    "email": "andri.setiawan@veritrans.co.id"
+                },
+                {
+                    "name": "Alvin Litani",
+                    "email": "alvin.litani@veritrans.co.id"
+                },
+                {
+                    "name": "Ismail Faruqi",
+                    "email": "ismail.faruqi@veritrans.co.id"
+                }
+            ],
+            "description": "PHP Wrapper for Midtrans Payment API.",
+            "homepage": "https://midtrans.com",
+            "support": {
+                "issues": "https://github.com/Midtrans/midtrans-php/issues",
+                "source": "https://github.com/Midtrans/midtrans-php/tree/2.5.2"
+            },
+            "time": "2021-08-23T08:52:05+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.8.0",
             "source": {
@@ -2901,335 +2956,6 @@
                 }
             ],
             "time": "2022-11-05T23:03:38+00:00"
-        },
-        {
-            "name": "sammyjo20/saloon",
-            "version": "v1.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Sammyjo20/Saloon.git",
-                "reference": "a9db69006ea686d72f30c12b51f3127ac6dfc8ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Sammyjo20/Saloon/zipball/a9db69006ea686d72f30c12b51f3127ac6dfc8ad",
-                "reference": "a9db69006ea686d72f30c12b51f3127ac6dfc8ad",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.4",
-                "illuminate/support": "^8.0 || ^9.0",
-                "nesbot/carbon": "^2.58",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.5",
-                "league/flysystem": "^3.0",
-                "pestphp/pest": "^1.21",
-                "spatie/ray": "^1.33",
-                "symfony/dom-crawler": "^6.0"
-            },
-            "suggest": {
-                "symfony/dom-crawler": "Required for the SaloonResponse dom() method to parse HTML and XML."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sammyjo20\\Saloon\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sam Carré",
-                    "email": "29132017+Sammyjo20@users.noreply.github.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A Laravel/PHP package that allows you to write your API integrations or SDKs in a beautiful, standardised syntax.",
-            "homepage": "https://github.com/sammyjo20/saloon",
-            "keywords": [
-                "api",
-                "api-integrations",
-                "saloon",
-                "sammyjo20",
-                "sdk"
-            ],
-            "support": {
-                "issues": "https://github.com/Sammyjo20/Saloon/issues",
-                "source": "https://github.com/Sammyjo20/Saloon/tree/v1.5.3"
-            },
-            "time": "2022-11-07T21:41:32+00:00"
-        },
-        {
-            "name": "sawirricardo/laravel-midtrans",
-            "version": "1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sawirricardo/laravel-midtrans.git",
-                "reference": "ce9b8328529405bc579c039e73d349199f4229e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sawirricardo/laravel-midtrans/zipball/ce9b8328529405bc579c039e73d349199f4229e2",
-                "reference": "ce9b8328529405bc579c039e73d349199f4229e2",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.4",
-                "illuminate/contracts": "^8.73 | ^9.0",
-                "php": "^8.0",
-                "sawirricardo/midtrans-api": "^1.0.10",
-                "spatie/laravel-package-tools": "^1.9.2"
-            },
-            "require-dev": {
-                "nunomaduro/collision": "^5.10",
-                "nunomaduro/larastan": "^1.0",
-                "orchestra/testbench": "^6.22",
-                "pestphp/pest": "^1.21",
-                "pestphp/pest-plugin-laravel": "^1.1",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ray": "^1.26"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Sawirricardo\\Midtrans\\Laravel\\MidtransServiceProvider"
-                    ],
-                    "aliases": {
-                        "Midtrans": "Sawirricardo\\Midtrans\\Laravel\\Facades\\Midtrans"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Sawirricardo\\Midtrans\\Laravel\\": "src",
-                    "Sawirricardo\\Midtrans\\Laravel\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ricardo Sawir",
-                    "email": "sawir.ricardo@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel Midtrans - Wrapper for Midtrans package",
-            "homepage": "https://github.com/sawirricardo/laravel-midtrans",
-            "keywords": [
-                "laravel",
-                "laravel-midtrans",
-                "midtrans",
-                "sawirricardo"
-            ],
-            "support": {
-                "issues": "https://github.com/sawirricardo/laravel-midtrans/issues",
-                "source": "https://github.com/sawirricardo/laravel-midtrans/tree/1.5.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sawirricardo",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-12-08T02:03:41+00:00"
-        },
-        {
-            "name": "sawirricardo/midtrans-api",
-            "version": "1.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sawirricardo/midtrans-api.git",
-                "reference": "f11312a7d731c0418dd2b0bdbf6f264a001479c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sawirricardo/midtrans-api/zipball/f11312a7d731c0418dd2b0bdbf6f264a001479c3",
-                "reference": "f11312a7d731c0418dd2b0bdbf6f264a001479c3",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0",
-                "sammyjo20/saloon": "^1.0",
-                "spatie/data-transfer-object": "^1.0 | ^2.0 | ^3.7"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "pestphp/pest": "^1.20",
-                "spatie/ray": "^1.28"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sawirricardo\\Midtrans\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "sawirricardo",
-                    "email": "sawir.ricardo@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Interact with Midtrans API. Included Snap and its Core API.",
-            "homepage": "https://github.com/sawirricardo/midtrans-api",
-            "keywords": [
-                "midtrans-api",
-                "sawirricardo"
-            ],
-            "support": {
-                "issues": "https://github.com/sawirricardo/midtrans-api/issues",
-                "source": "https://github.com/sawirricardo/midtrans-api/tree/1.0.10"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sawirricardo",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-12-08T02:01:59+00:00"
-        },
-        {
-            "name": "spatie/data-transfer-object",
-            "version": "3.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/data-transfer-object.git",
-                "reference": "1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8",
-                "reference": "1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "illuminate/collections": "^8.36",
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "larapack/dd": "^1.1",
-                "phpunit/phpunit": "^9.5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\DataTransferObject\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brent Roose",
-                    "email": "brent@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Data transfer objects with batteries included",
-            "homepage": "https://github.com/spatie/data-transfer-object",
-            "keywords": [
-                "data-transfer-object",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/data-transfer-object/issues",
-                "source": "https://github.com/spatie/data-transfer-object/tree/3.9.1"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "spatie/laravel-data",
-            "time": "2022-09-16T13:34:38+00:00"
-        },
-        {
-            "name": "spatie/laravel-package-tools",
-            "version": "1.13.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "781a2f637237e69c277eb401063acf15e2b4156b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/781a2f637237e69c277eb401063acf15e2b4156b",
-                "reference": "781a2f637237e69c277eb401063acf15e2b4156b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^9.28",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^7.7",
-                "pestphp/pest": "^1.22",
-                "phpunit/phpunit": "^9.5.24",
-                "spatie/pest-plugin-test-time": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\LaravelPackageTools\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Tools for creating Laravel packages",
-            "homepage": "https://github.com/spatie/laravel-package-tools",
-            "keywords": [
-                "laravel-package-tools",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.13.8"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-12-20T14:09:05+00:00"
         },
         {
             "name": "symfony/console",
