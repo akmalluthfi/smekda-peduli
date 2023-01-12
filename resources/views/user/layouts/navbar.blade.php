@@ -25,8 +25,6 @@
       </ul>
     </div>
 
-
-
     <div class="order-2 order-md-3">
       @guest
         <a href="/login" class="btn btn-outline-blue">Masuk</a>
@@ -46,6 +44,14 @@
                 <span>Profile Saya</span>
               </a>
             </li>
+            @if (auth()->user()->is_admin)
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/admin">
+                  <i class="bi bi-house me-2"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            @endif
             <li>
               <a class="dropdown-item d-flex align-items-center" href="user/settings">
                 <i class="bi bi-gear me-2"></i>
@@ -64,6 +70,7 @@
             <li>
               <form action="/logout" method="POST">
                 @method('delete')
+                @csrf
                 <button type="submit" class="dropdown-item d-flex align-items-center text-danger" href="/logout">
                   <i class="bi bi-box-arrow-right me-2"></i>
                   <span>Keluar</span>
