@@ -32,7 +32,7 @@ class CampaignController extends Controller
         return view('user.sections.campaigns.show', [
             'campaign' => $campaign,
             'progress' => ($campaign->donations_sum_amount / $campaign->target_amount) * 100,
-            'comments' => Comment::where('campaign_id', $campaign->id)->with('user')->paginate(5)
+            'comments' => Comment::where('campaign_id', $campaign->id)->with('user')->paginate(10)
         ]);
     }
 }

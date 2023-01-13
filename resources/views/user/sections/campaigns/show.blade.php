@@ -32,7 +32,8 @@
 
             <div class="d-flex">
               <button class="btn btn-outline-primary me-3" id="btn-share"><i class="bi bi-link-45deg"></i></button>
-              <button class="btn btn-blue w-100">Donasi Sekarang</button>
+              <a href="{{ route('campaigns.donations.index', $campaign->slug) }}" class="btn btn-blue w-100">Donasi
+                Sekarang</a>
             </div>
           </div>
         </div>
