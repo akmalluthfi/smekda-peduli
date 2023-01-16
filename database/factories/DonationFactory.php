@@ -19,9 +19,11 @@ class DonationFactory extends Factory
         return [
             'amount' => fake()->randomElement([10, 30, 50, 75, 100]) * 1000,
             'status' => fake()->randomElement(['success', 'pending', 'failed']),
-            'user_id' => rand(1, 11),
+            'user_id' => null,
+            'as_anonymous' => true,
+            'name' => fake()->name(),
+            'email' => fake()->safeEmail(),
             'campaign_id' => rand(1, 20),
-            'payment_id' => rand(1, 6)
         ];
     }
 }
