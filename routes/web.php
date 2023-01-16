@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
@@ -63,5 +62,4 @@ Route::group([
     Route::resource('/campaigns', AdminCampaignController::class)->scoped([
         'campaign' => 'slug'
     ]);
-    // Route::resource('/payments', PaymentController::class);
 });

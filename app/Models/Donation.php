@@ -19,8 +19,9 @@ class Donation extends Model
         'amount',
         'status',
         'user_id',
+        'name',
+        'email',
         'campaign_id',
-        'payment_id',
         'as_anonymous'
     ];
 
@@ -41,10 +42,5 @@ class Donation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function payment()
-    {
-        return $this->belongsTo(Payment::class);
     }
 }
