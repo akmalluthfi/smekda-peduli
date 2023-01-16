@@ -26,7 +26,7 @@
 <body>
 
   <header class="bg-white py-3 shadow-sm fixed-top">
-    <div class="container-fluid d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center" style="max-width: 36rem">
       <h3 class="m-0 me-3">
         <a class="link-dark" href="{{ route('user.campaigns.show', $campaign->slug) }}">
           <i class="bi bi-arrow-left"></i></a>
@@ -36,7 +36,7 @@
   </header>
 
   <main class="container-fluid" style="margin-top: 4rem">
-    <div class="py-3">
+    <div class="pt-3 m-auto" style="max-width: 36rem">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Nominal Donasi</h5>
@@ -86,7 +86,6 @@
     </div>
   </main>
 
-  @stack('scripts')
   {{-- Template Main JS File --}}
   <script src="/js/bootstrap.bundle.min.js"></script>
 </body>

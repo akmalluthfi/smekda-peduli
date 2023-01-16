@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
-class CampaignDonationController extends Controller
+class DonationController extends Controller
 {
     public function index(Campaign $campaign)
     {
-        return view('user.sections.campaigns.donations.index', [
+        return view('donations.index', [
             'campaign' => $campaign
         ]);
     }

@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PaymentController;
+// use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
-use App\Http\Controllers\CampaignDonationController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,9 +47,11 @@ Route::resource('campaigns', CampaignController::class)->names('user.campaigns')
     'index', 'show'
 ]);
 
-Route::resource('campaigns.donations', CampaignDonationController::class)->only([
+Route::resource('campaigns.donations', DonationController::class)->only([
     'index', 'store'
 ]);
+
+Route::get('payments/{donation}', [PaymentController::class, 'index']);
 
 // Route Admim
 Route::group([
@@ -60,5 +63,5 @@ Route::group([
     Route::resource('/campaigns', AdminCampaignController::class)->scoped([
         'campaign' => 'slug'
     ]);
-    Route::resource('/payments', PaymentController::class);
+    // Route::resource('/payments', PaymentController::class);
 });
