@@ -33,10 +33,16 @@ class DatabaseSeeder extends Seeder
             'status' => 'success'
         ]);
 
+        \App\Models\Donation::factory(100)->create([
+            'status' => 'success'
+        ]);
+
         \App\Models\Comment::factory(50)->create();
 
         \App\Models\Comment::factory(100)->create([
-            'user_id' => null
+            'name' => null,
+            'email' => null,
+            'user_id' => rand(1, 11),
         ]);
     }
 }

@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->boolean('as_anonymous')->default(true);
             $table->string('body');
+            $table->enum('status', ['success', 'pending', 'failed']);
             $table->foreignId('user_id')->nullable();
             $table->foreignId('campaign_id');
             $table->timestamps();

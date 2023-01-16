@@ -16,22 +16,12 @@ class Donation extends Model
      * @var array
      */
     protected $fillable = [
-        'amount',
-        'status',
-        'user_id',
         'name',
         'email',
+        'status',
+        'amount',
+        'user_id',
         'campaign_id',
-        'as_anonymous'
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'as_anonymous' => 'boolean',
     ];
 
     public function campaign()

@@ -17,8 +17,12 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
+            'name' => fake()->name(),
+            'email' => fake()->safeEmail(),
+            'as_anonymous' => fake()->boolean(),
             'body' => fake()->paragraph(2, true),
-            'user_id' => rand(1, 11),
+            'status' => fake()->randomElement(['success', 'pending', 'failed']),
+            'user_id' => null,
             'campaign_id' => rand(1, 20),
         ];
     }

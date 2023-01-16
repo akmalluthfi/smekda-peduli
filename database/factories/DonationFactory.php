@@ -17,12 +17,11 @@ class DonationFactory extends Factory
     public function definition()
     {
         return [
-            'amount' => fake()->randomElement([10, 30, 50, 75, 100]) * 1000,
-            'status' => fake()->randomElement(['success', 'pending', 'failed']),
-            'user_id' => null,
-            'as_anonymous' => true,
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
+            'status' => fake()->randomElement(['success', 'pending', 'failed']),
+            'amount' => fake()->randomElement([10, 30, 50, 75, 100]) * 1000,
+            'user_id' => null,
             'campaign_id' => rand(1, 20),
         ];
     }
