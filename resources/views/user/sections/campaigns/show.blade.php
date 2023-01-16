@@ -91,7 +91,7 @@
 
 @push('scripts')
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="copy-toast" class="toast align-items-center bg-opacity-50 text-bg-info" role="alert" aria-live="assertive"
+    <div id="copy-toast" class="toast align-items-center text-bg-info" role="alert" aria-live="assertive"
       aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
