@@ -44,10 +44,14 @@
           <form action="{{ route('campaigns.donations.store', $campaign->slug) }}" method="POST">
             @csrf
             <div class="mb-3">
-              <label for="basic-url" class="form-label">Isi nominal donasi</label>
+              <label for="amount" class="form-label">Isi nominal donasi</label>
               <div class="input-group">
                 <span class="input-group-text" id="money">Rp </span>
-                <input type="number" min="1000" class="form-control" id="basic-url" aria-describedby="money">
+                <input type="number" min="1000" class="form-control @error('amount') is-invalid @enderror"
+                  id="amount" aria-describedby="money" name="amount" value="{{ old('amount') }}" required>
+                @error('amount')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-text">Donasi minimal Rp 1.000</div>
             </div>
@@ -57,27 +61,44 @@
 
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                  name="name" placeholder="Nama Lengkap" value="{{ old('name') }}">
+                @error('name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                  name="email" placeholder="Email" value="{{ old('email') }}">
+                @error('email')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
             @endguest
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="is_anonymous">
-              <label class="form-check-label" for="is_anonymous">
+              <input class="form-check-input @error('as_anonymous') is-invalid @enderror" type="checkbox"
+                id="as_anonymous" name="as_anonymous" @checked(old('as_anonymous'))>
+
+              @error('as_anonymous')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+              <label class="form-check-label" for="as_anonymous">
                 Donasi sebagai anonymous
               </label>
             </div>
 
             <div class="mb-3">
               <label for="comment" class="form-label">Dukungan untuk campaign</label>
-              <textarea class="form-control" id="comment" rows="3" placeholder="Tulis dukungan atau doa untuk pasien"></textarea>
+              <textarea class="form-control @error('comment') is-invalid @enderror" id="comment" name="comment" rows="3"
+                placeholder="Tulis dukungan atau doa untuk pasien">{{ old('comment') }}</textarea>
+              @error('comment')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
 
-            <button class="btn btn-blue w-100">Lanjut Pembayaran</button>
+            <button type="submit" class="btn btn-blue w-100">Lanjut Pembayaran</button>
 
           </form>
 

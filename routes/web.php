@@ -50,7 +50,7 @@ Route::resource('campaigns.donations', DonationController::class)->only([
     'index', 'store'
 ]);
 
-Route::get('payments/{donation}', [PaymentController::class, 'index']);
+Route::get('payment/{donation}', [PaymentController::class, 'index'])->name('payment');
 
 // Route Admim
 Route::group([
