@@ -46,7 +46,6 @@ class DonationController extends Controller
             $comment->email = $validatedData['email'];
         }
 
-
         // generate snap token 
         $params = [
             'transaction_details' => [
@@ -55,10 +54,10 @@ class DonationController extends Controller
             ],
             'item_details' => [
                 [
-                    'id' => 1,
-                    'price' => '150000',
+                    'id' => $campaign->id,
+                    'price' => $validatedData['amount'],
                     'quantity' => 1,
-                    'name' => 'Flashdisk Toshiba 32GB',
+                    'name' => $campaign->title,
                 ],
             ],
             'customer_details' => [

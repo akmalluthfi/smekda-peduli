@@ -31,21 +31,12 @@
         <a class="link-dark" href="/">
           <i class="bi bi-arrow-left"></i></a>
       </h3>
-      <h5 class="m-0 fw-bold text-overflow-ellipsis" id="title">Judul</h5>
+      <h5 class="m-0 fw-bold text-overflow-ellipsis" id="title">{{ $donation->campaign->title }}</h5>
     </div>
   </header>
 
   <main class="container-fluid" style="margin-top: 4rem">
     <div class="pt-3 m-auto" style="max-width: 36rem">
-
-      @if ($errors->any())
-        @foreach ($errors->all() as $error)
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ $error }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endforeach
-      @endif
 
       <div class="card">
         <div class="card-body">
@@ -56,50 +47,84 @@
               <h6>Detail Donasi</h6>
               <div class="d-flex justify-content-between">
                 <div class="text">Tanggal</div>
-                <span>29 Desember 2022</span>
+                <span>{{ $donation->created_at->format('d F Y') }}</span>
               </div>
               <div class="d-flex justify-content-between">
-                <div class="text">ID Donasi</div>
-                <span>343535345</span>
+                <div class="text-nowrap me-2">ID Donasi</div>
+                <span class="text-overflow-ellipsis">{{ $donation->id }}</span>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="text">Status</div>
-                <span class="badge text-bg-danger">Expire</span>
+                @if ($donation->status == 'pending')
+                  <span class="badge text-bg-warning">{{ $donation->status }}</span>
+                @elseif($donation->status == 'success')
+                  <span class="badge text-bg-success">{{ $donation->status }}</span>
+                @else
+                  <span class="badge text-bg-danger">{{ $donation->status }}</span>
+                @endif
               </div>
             </li>
             <li class="list-group-item">
               <h6>Tujuan donasi</h6>
               <div class="d-flex justify-content-between">
-                <div class="text">Donasi untuk</div>
-                <span>Something to gain after the pain</span>
+                <div class="text-nowrap me-2">Donasi untuk</div>
+                <a class="text-overflow-ellipsis" href="{{ route('user.campaigns.show', $donation->campaign->slug) }}">
+                  {{ $donation->campaign->title }}</a>
               </div>
             </li>
             <li class="list-group-item">
               <h6>Donasi oleh</h6>
-              <span class="d-block">alfi</span>
-              <span>alfi@gmail.com</span>
+              <span class="d-block">{{ $donation->name ?? $donation->user()->name }}</span>
+              <span>{{ $donation->email ?? $donation->user()->email }}</span>
             </li>
             <li class="list-group-item">
               <h6>Jumlah donasi</h6>
               <div class="d-flex justify-content-between">
                 <div class="text">Donasi utama</div>
-                <span>Rp 12.000</span>
+                <span>Rp {{ number_format($donation->amount ?? 0, 0, '.', '.') }}</span>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="text">Total</div>
-                <span>Rp 12.000</span>
+                <span>Rp {{ number_format($donation->amount ?? 0, 0, '.', '.') }}</span>
               </div>
             </li>
           </ul>
 
-          <button class="btn btn-blue w-100">Bayar</button>
+          <button id="pay-button" class="btn btn-blue w-100">Bayar</button>
 
         </div>
       </div>
     </div>
   </main>
 
-  @stack('scripts')
+  <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="{{ config('midtrans.client_key') }}"></script>
+  <script>
+    // For example trigger on button clicked, or any time you need
+    const payButton = document.getElementById('pay-button');
+    payButton.addEventListener('click', function() {
+      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+      window.snap.pay('{{ $donation->snap_token }}', {
+        onSuccess: function(result) {
+          /* You may add your own implementation here */
+          window.location.href = '/campaigns/{{ $campaign->slug }}';
+        },
+        onPending: function(result) {
+          /* You may add your own implementation here */
+          window.location.href = '/campaigns/{{ $campaign->slug }}';
+        },
+        onError: function(result) {
+          /* You may add your own implementation here */
+          alert("payment failed!");
+          console.log(result);
+        },
+        onClose: function() {
+          /* You may add your own implementation here */
+          alert('you closed the popup without finishing the payment');
+        }
+      })
+    });
+  </script>
 
   {{-- Template Main JS File --}}
   <script src="/js/bootstrap.bundle.min.js"></script>
