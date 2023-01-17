@@ -59,6 +59,8 @@
                   <span class="badge text-bg-warning">{{ $donation->status }}</span>
                 @elseif($donation->status == 'success')
                   <span class="badge text-bg-success">{{ $donation->status }}</span>
+                @elseif($donation->status == 'created')
+                  <span class="badge text-bg-warning">Belum Bayar</span>
                 @else
                   <span class="badge text-bg-danger">{{ $donation->status }}</span>
                 @endif
@@ -90,7 +92,9 @@
             </li>
           </ul>
 
-          <button id="pay-button" class="btn btn-blue w-100">Bayar</button>
+          @if ($donation->status === 'created')
+            <button id="pay-button" class="btn btn-blue w-100">Bayar</button>
+          @endif
 
         </div>
       </div>
