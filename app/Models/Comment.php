@@ -15,12 +15,8 @@ class Comment extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
         'as_anonymous',
         'body',
-        'status',
-        'user_id',
         'campaign_id'
     ];
 
@@ -41,5 +37,10 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function donation()
+    {
+        $this->hasOne(Donation::class);
     }
 }

@@ -6,6 +6,11 @@ use Midtrans\Config;
 
 class Midtrans
 {
+    protected $serverKey;
+    protected $isProduction;
+    protected $isSanitized;
+    protected $is3ds;
+
     public function __construct()
     {
         $this->serverKey = config('midtrans.server_key');

@@ -22,28 +22,25 @@ class DonationController extends Controller
         $validatedData = $request->validated();
 
         $donation = new Donation([
-            'status' => 'pending',
+            'status' => 'created',
             'amount' => $validatedData['amount']
         ]);
 
         $donationID = $donation->newUniqueId();
+
         $donation->id = $donationID;
 
-        $comment = new Comment([
-            'status' => 'pending',
+        $comment = Comment::create([
             'body' => $validatedData['comment'],
             'as_anonymous' => $request->has('as_anonymous'),
+            'campaign_id' => $campaign->id
         ]);
 
         if (auth()->check()) {
             $donation->user_id = auth()->user()->id;
-            $comment->user_id = auth()->user()->id;
         } else {
             $donation->name = $validatedData['name'];
             $donation->email = $validatedData['email'];
-
-            $comment->name = $validatedData['name'];
-            $comment->email = $validatedData['email'];
         }
 
         // generate snap token 
@@ -69,12 +66,13 @@ class DonationController extends Controller
         $tokenService = new CreateSnapTokenService($params);
         $donation->snap_token = $tokenService->getSnapToken();
 
-        // insert
-        $newDonation = $campaign->donations()->save($donation);
-
         if (!is_null($validatedData['comment'])) {
             $campaign->comments()->save($comment);
+            $donation->comment()->associate($comment);
         };
+
+        // insert
+        $newDonation = $campaign->donations()->save($donation);
 
         return redirect()->route('payment', [$newDonation]);
     }

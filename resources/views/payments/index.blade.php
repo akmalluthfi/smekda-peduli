@@ -107,20 +107,18 @@
       window.snap.pay('{{ $donation->snap_token }}', {
         onSuccess: function(result) {
           /* You may add your own implementation here */
-          window.location.href = '/campaigns/{{ $campaign->slug }}';
+          location.reload();
         },
         onPending: function(result) {
           /* You may add your own implementation here */
-          window.location.href = '/campaigns/{{ $campaign->slug }}';
+          location.reload();
         },
         onError: function(result) {
           /* You may add your own implementation here */
-          alert("payment failed!");
-          console.log(result);
+          location.reload();
         },
         onClose: function() {
           /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
         }
       })
     });

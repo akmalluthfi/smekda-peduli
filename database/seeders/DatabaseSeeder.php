@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,20 +28,14 @@ class DatabaseSeeder extends Seeder
             'status' => 'completed'
         ]);
 
-        \App\Models\Donation::factory(100)->create([
-            'status' => 'success'
-        ]);
+        \App\Models\Donation::factory(100)
+            ->create();
 
-        \App\Models\Donation::factory(100)->create([
-            'status' => 'success'
-        ]);
-
-        \App\Models\Comment::factory(50)->create();
-
-        \App\Models\Comment::factory(100)->create([
-            'name' => null,
-            'email' => null,
-            'user_id' => rand(1, 11),
-        ]);
+        \App\Models\Donation::factory(100)
+            ->create([
+                'email' => null,
+                'name' => null,
+                'user_id' => rand(1, 10),
+            ]);
     }
 }

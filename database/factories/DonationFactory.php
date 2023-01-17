@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,6 +24,7 @@ class DonationFactory extends Factory
             'amount' => fake()->randomElement([10, 30, 50, 75, 100]) * 1000,
             'user_id' => null,
             'campaign_id' => rand(1, 20),
+            'comment_id' => Comment::factory()->create()->id
         ];
     }
 }

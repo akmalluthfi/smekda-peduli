@@ -17,11 +17,12 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->enum('status', ['success', 'pending', 'failed']);
+            $table->enum('status', ['created', 'success', 'pending', 'failed']);
             $table->integer('amount');
             $table->string('snap_token')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('campaign_id');
+            $table->foreignId('comment_id')->nullable();
             $table->timestamps();
         });
     }
