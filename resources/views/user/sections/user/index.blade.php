@@ -128,19 +128,30 @@
 
                 <h5 class="card-title pt-0">Ubah Password</h5>
                 {{-- Change Password Form --}}
-                <form>
+                <form action="{{ route('password.change') }}" method="POST">
+                  @csrf
+                  @method('put')
 
                   <div class="row mb-3">
-                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
+                    <label for="old_password" class="col-md-4 col-lg-3 col-form-label">Password Lama</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="newpassword" type="password" class="form-control" id="newPassword">
+                      <input name="old_password" type="password" class="form-control" id="old_password" required>
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Konfirmasi Password Baru</label>
+                    <label for="password" class="col-md-4 col-lg-3 col-form-label">Password Baru</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                      <input name="password" type="password" class="form-control" id="password" required>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="password_confirmation" class="col-md-4 col-lg-3 col-form-label">Konfirmasi Password
+                      Baru</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="password_confirmation" type="password" class="form-control"
+                        id="password_confirmation" required>
                     </div>
                   </div>
 
@@ -161,9 +172,29 @@
   </section>
 
   @push('scripts')
+    @if ($errors->any())
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="error-toast" class="toast align-items-center text-bg-warning" role="alert" aria-live="assertive"
+          aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body">
+              <i class="bi bi-check-circle me-2"></i> {{ $errors->first() }}
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const toastEl = document.getElementById('error-toast');
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+      </script>
+    @endif
+
     @if (session()->has('success'))
       <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="success-toast" class="toast align-items-center text-bg-info" role="alert" aria-live="assertive"
+        <div id="success-toast" class="toast align-items-center text-bg-success" role="alert" aria-live="assertive"
           aria-atomic="true">
           <div class="d-flex">
             <div class="toast-body">

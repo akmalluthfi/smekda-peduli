@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -35,5 +37,14 @@ class UserController extends Controller
         User::where('id', auth()->user()->id)->update($validatedData);
 
         return redirect()->back()->with('success', 'Data berhasil diubah');
+    }
+
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        User::where('id', auth()->user()->id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect()->back()->with('success', 'Password berhasil diubah');
     }
 }

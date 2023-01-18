@@ -29,6 +29,7 @@ Route::group([
 ], function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::put('/', [UserController::class, 'update'])->name('user.update');
+    Route::put('/password/change', [UserController::class, 'changePassword'])->name('password.change');
     Route::get('/donations', [UserController::class, 'donations'])->name('user.donations');
 });
 
