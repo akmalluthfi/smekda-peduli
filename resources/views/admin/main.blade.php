@@ -14,7 +14,7 @@
   @include('admin.layouts.sidebar')
   {{-- End Sidebar --}}
 
-  <div class="d-flex flex-column justify-content-between min-vh-100" style="margin-top: -24px">
+  <div class="d-flex flex-column justify-content-between min-vh-100">
     <main id="main" class="main">
 
       @yield('content')

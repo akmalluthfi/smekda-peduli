@@ -35,9 +35,10 @@
 
   @include('user.layouts.footer')
 
-  @stack('scripts')
   {{-- Template Main JS File --}}
   <script src="/js/bootstrap.bundle.min.js"></script>
+  {{-- My script --}}
+  @stack('scripts')
 </body>
 
 </html>

@@ -27,8 +27,8 @@ Route::group([
     'prefix' => 'user',
     'middleware' => 'auth'
 ], function () {
-    Route::get('/', [UserController::class, 'index'])->name('user.profile');
-    Route::get('/settings', [UserController::class, 'settings'])->name('user.settings');
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::put('/', [UserController::class, 'update'])->name('user.update');
     Route::get('/donations', [UserController::class, 'donations'])->name('user.donations');
 });
 
