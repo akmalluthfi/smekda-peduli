@@ -76,8 +76,8 @@
             </li>
             <li class="list-group-item">
               <h6>Donasi oleh</h6>
-              <span class="d-block">{{ $donation->name ?? $donation->user()->name }}</span>
-              <span>{{ $donation->email ?? $donation->user()->email }}</span>
+              <span class="d-block">{{ $donation->name ?? $donation->user->name }}</span>
+              <span>{{ $donation->email ?? $donation->user->email }}</span>
             </li>
             <li class="list-group-item">
               <h6>Jumlah donasi</h6>

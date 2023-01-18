@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->boolean('as_anonymous')->default(false);
+            $table->boolean('as_anonymous');
             $table->string('body')->nullable();
             $table->foreignId('campaign_id');
             $table->timestamps();
