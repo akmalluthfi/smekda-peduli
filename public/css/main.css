@@ -479,15 +479,15 @@ a.card-title:hover {
     position: relative;
 }
 
-.header-nav .nav-profile {
+.nav-profile {
     color: #012970;
 }
 
-.header-nav .nav-profile img {
+.nav-profile img {
     max-height: 36px;
 }
 
-.header-nav .nav-profile span {
+.nav-profile span {
     font-size: 14px;
     font-weight: 600;
 }
@@ -567,36 +567,40 @@ a.card-title:hover {
     background-color: var(--bg-body);
 }
 
-.header-nav .profile {
+.profile {
     min-width: 240px;
     padding-bottom: 0;
     top: 8px !important;
 }
 
-.header-nav .profile .dropdown-header h6 {
+.profile.user {
+    top: 43px !important;
+}
+
+.profile .dropdown-header h6 {
     font-size: 18px;
     margin-bottom: 0;
     font-weight: 600;
     color: #444444;
 }
 
-.header-nav .profile .dropdown-header span {
+.profile .dropdown-header span {
     font-size: 14px;
 }
 
-.header-nav .profile .dropdown-item {
+.profile .dropdown-item {
     font-size: 14px;
     padding: 10px 15px;
     transition: 0.3s;
 }
 
-.header-nav .profile .dropdown-item i {
+.profile .dropdown-item i {
     margin-right: 10px;
     font-size: 18px;
     line-height: 0;
 }
 
-.header-nav .profile .dropdown-item:hover {
+.profile .dropdown-item:hover {
     background-color: var(--bg-body);
 }
 

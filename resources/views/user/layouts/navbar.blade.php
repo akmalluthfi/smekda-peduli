@@ -32,18 +32,31 @@
       @endguest
 
       @auth
-        <div class="dropdown">
-          <a class="dropdown-toggle profile-toogle" href="#" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <img src="/img/default.png" alt=" Profile" class="rounded-circle" height="40" />
+        <div class="dropdown position-relative">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{{ auth()->user()->picture ? asset('storage/' . auth()->user()->picture) : '/img/default.png' }}"
+              alt="{{ auth()->user()->name }} Profile Picture" class="rounded-circle" height="40" />
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile user">
+            <li class="dropdown-header">
+              <h6>{{ auth()->user()->name }}</h6>
+              <span>{{ auth()->user()->is_admin ? 'Admiin' : 'User' }}</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
             <li>
               <a class="dropdown-item d-flex align-items-center" href="/user">
                 <i class="bi bi-person me-2"></i>
                 <span>Profile Saya</span>
               </a>
             </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
             @if (auth()->user()->is_admin)
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="/admin">
@@ -51,13 +64,11 @@
                   <span>Dashboard</span>
                 </a>
               </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
             @endif
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="user/settings">
-                <i class="bi bi-gear me-2"></i>
-                <span>Pengaturan</span>
-              </a>
-            </li>
+
             <li>
               <a class="dropdown-item d-flex align-items-center" href="/help">
                 <i class="bi bi-question-circle me-2"></i>
@@ -67,6 +78,7 @@
             <li>
               <hr class="dropdown-divider" />
             </li>
+
             <li>
               <form action="/logout" method="POST">
                 @method('delete')
@@ -78,6 +90,7 @@
               </form>
             </li>
           </ul>
+
         </div>
       @endauth
     </div>
