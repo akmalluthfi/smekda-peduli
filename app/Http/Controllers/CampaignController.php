@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Campaign;
-use App\Models\Comment;
-use App\Models\Donation;
+use Illuminate\Database\Eloquent\Builder;
 
 class CampaignController extends Controller
 {
@@ -29,10 +28,14 @@ class CampaignController extends Controller
 
     public function show(Request $request, Campaign $campaign)
     {
+        $comments = $campaign->comments()->whereHas('donation', function (Builder $query) {
+            $query->where('status', 'success');
+        });
+
         return view('user.sections.campaigns.show', [
             'campaign' => $campaign,
             'progress' => ($campaign->donations_sum_amount / $campaign->target_amount) * 100,
-            'comments' => Comment::where('campaign_id', $campaign->id)->with('user')->paginate(10)
+            'comments' => $comments->paginate(10),
         ]);
     }
 }

@@ -41,6 +41,6 @@ class Comment extends Model
 
     public function donation()
     {
-        $this->hasOne(Donation::class);
+        return $this->hasOne(Donation::class);
     }
 }

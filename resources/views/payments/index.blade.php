@@ -28,7 +28,7 @@
   <header class="bg-white py-3 shadow-sm fixed-top">
     <div class="container-fluid d-flex align-items-center" style="max-width: 36rem">
       <h3 class="m-0 me-3">
-        <a class="link-dark" href="/">
+        <a class="link-dark" href="{{ route('user.campaigns.show', $donation->campaign->slug) }}">
           <i class="bi bi-arrow-left"></i></a>
       </h3>
       <h5 class="m-0 fw-bold text-overflow-ellipsis" id="title">{{ $donation->campaign->title }}</h5>
