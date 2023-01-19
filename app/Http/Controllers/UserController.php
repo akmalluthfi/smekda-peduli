@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Donation;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -46,5 +47,14 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Password berhasil diubah');
+    }
+
+    public function donations()
+    {
+        $donations = Donation::where('user_id', auth()->user()->id)->with('campaign');
+
+        return view('user.sections.user.donations', [
+            'donations' => $donations->paginate()
+        ]);
     }
 }

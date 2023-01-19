@@ -60,13 +60,19 @@
                 @foreach ($comments as $comment)
                   <li class="list-group-item">
                     <div class="d-flex mb-3">
-                      @if ($comment->donation->user_id)
+                      @if ($comment->as_anonymous)
                         <img alt="user comment profile" class="rounded-circle" width="40" height="40"
-                          src="{{ $comment->donation->user->picture ? asset('storage/' . $comment->user->picture) : '/assets/img/card.jpg' }}" />
+                          src="/img/default.png" />
                       @else
-                        <img alt="user comment profile" class="rounded-circle" width="40" height="40"
-                          src="/assets/img/card.jpg" />
+                        @if ($comment->donation->user_id)
+                          <img alt="user comment profile" class="rounded-circle" width="40" height="40"
+                            src="{{ $comment->donation->user->picture ? asset('storage/' . $comment->donation->user->picture) : '/img/default.png' }}" />
+                        @else
+                          <img alt="user comment profile" class="rounded-circle" width="40" height="40"
+                            src="/img/default.png" />
+                        @endif
                       @endif
+
                       <div class="ms-3">
                         @if ($comment->as_anonymous)
                           <h6 class="m-0">Anonymous</h6>
