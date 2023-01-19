@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Donation;
-use App\Models\Payment;
 
 class DashboardController extends Controller
 {
@@ -14,9 +13,10 @@ class DashboardController extends Controller
         $completed_campaings = Campaign::completed()->count();
         $open_campaigns = Campaign::open()->count();
 
-        $donation = Donation::where('status', 'success');
-        $donation_count = $donation->count();
-        $donation_sum = $donation->sum('amount');
+        $donation_success = Donation::where('status', 'success');
+        $donation_other = Donation::whereNot('status', 'success')->count();
+
+        $donation_sum = $donation_success->sum('amount');
 
         return view('admin.sections.dashboard', [
             'campaigns' => [
@@ -24,7 +24,11 @@ class DashboardController extends Controller
                 'open' => $open_campaigns,
                 'completed' => $completed_campaings
             ],
-            'donation_count' => $donation_count,
+            'donation_count' => [
+                'total'  => $donation_success->count() + $donation_other,
+                'success' => $donation_success->count(),
+                'other' => $donation_other,
+            ],
             'donation_sum' => $donation_sum
         ]);
     }
