@@ -19,8 +19,9 @@
                   <div class="col">
                     <div class="row h-100">
                       <h6 class="m-0 fw-semibold">
-                        <a class="nav-link"
-                          href="{{ route('user.campaigns.show', $donation->campaign->slug) }}">{{ $donation->campaign->title }}</a>
+                        <a class="nav-link" href="{{ route('payment', $donation->id) }}">
+                          {{ $donation->campaign->title }}
+                        </a>
                       </h6>
                       <div class="mt-auto">
                         <small class="text-secondary">{{ $donation->created_at->format('d M Y') }} &bull;</small>

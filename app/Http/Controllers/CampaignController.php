@@ -30,7 +30,7 @@ class CampaignController extends Controller
     {
         $comments = $campaign->comments()->whereHas('donation', function (Builder $query) {
             $query->where('status', 'success');
-        });
+        })->latest();
 
         return view('user.sections.campaigns.show', [
             'campaign' => $campaign,

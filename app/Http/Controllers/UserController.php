@@ -51,7 +51,7 @@ class UserController extends Controller
 
     public function donations()
     {
-        $donations = Donation::where('user_id', auth()->user()->id)->with('campaign');
+        $donations = Donation::where('user_id', auth()->user()->id)->latest()->with('campaign');
 
         return view('user.sections.user.donations', [
             'donations' => $donations->paginate()
