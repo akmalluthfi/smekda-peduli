@@ -93,7 +93,7 @@
             </li>
           </ul>
 
-          @if ($donation->status === 'created')
+          @if ($donation->status === 'created' || $donation->status === 'pending')
             <button id="pay-button" class="btn btn-blue w-100">Bayar</button>
           @endif
 
