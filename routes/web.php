@@ -62,5 +62,5 @@ Route::group([
 
     Route::resource('/campaigns', AdminCampaignController::class)->scoped([
         'campaign' => 'slug'
-    ]);
+    ])->except('show');
 });

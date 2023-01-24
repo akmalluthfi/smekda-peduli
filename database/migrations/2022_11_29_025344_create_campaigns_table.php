@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->integer('target_amount');
             $table->date('duration');
             $table->text('description');

@@ -21,7 +21,7 @@
         <div class="carousel-inner rounded-3 ratio ratio-21x9">
           @foreach ($campaigns->take(3) as $campaign)
             <div class="carousel-item @if ($loop->first) active @endif">
-              <a href="{{ route('campaigns.show', $campaign->slug) }}">
+              <a href="{{ route('user.campaigns.show', $campaign->slug) }}">
                 <img src="{{ $campaign->image ? asset('storage/' . $campaign->image) : '/assets/img/card.jpg' }}"
                   class="d-block w-100 h-100" alt="random">
               </a>

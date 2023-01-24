@@ -56,16 +56,9 @@ class Campaign extends Model
             ->firstOrFail();
     }
 
-    /**
-     * Get the campaign's duration.
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
-    protected function duration(): Attribute
+    public function getDurationInDaysAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) => (new Carbon($value))->diffInDays(),
-        );
+        return (new Carbon($this->duration))->diffInDays();
     }
 
     /**

@@ -28,7 +28,7 @@
               </div>
               <div>
                 <div class="text-muted small">Sisa hari</div>
-                <div class="text-end">{{ $campaign->duration }}</div>
+                <div class="text-end">{{ $campaign->duration_in_days }}</div>
               </div>
             </div>
           </div>

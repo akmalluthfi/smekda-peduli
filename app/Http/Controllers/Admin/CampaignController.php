@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCampaignRequest;
 use App\Models\Campaign;
-use App\Models\Donation;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -77,10 +75,12 @@ class CampaignController extends Controller
      */
     public function show(Campaign $campaign)
     {
-        $donations = Donation::where('campaign_id', $campaign->id)
-            ->with('user:id,name', 'payment:id,method')
-            ->paginate(5)
-            ->fragment('donation');
+        $donations = $campaign->donations()->paginate(5)->fragment('donation');
+
+        // $donations = Donation::where('campaign_id', $campaign->id)
+        //     ->with('user:id,name', 'payment:id,method')
+        //     ->paginate(5)
+        //     ->fragment('donation');
 
         return view('admin.sections.campaigns.show', [
             'campaign' => $campaign,
@@ -97,7 +97,9 @@ class CampaignController extends Controller
      */
     public function edit(Campaign $campaign)
     {
-        //
+        return view('admin.sections.campaigns.edit', [
+            'campaign' => $campaign
+        ]);
     }
 
     /**

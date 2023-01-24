@@ -27,7 +27,7 @@
 
             <div class="d-flex justify-content-between mb-4">
               <div class="col-auto">{{ $campaign->donations_count }} <small>Donasi</small></div>
-              <div class="col-auto">{{ $campaign->duration }} <small>hari</small></div>
+              <div class="col-auto">{{ $campaign->duration_in_days }} <small>hari</small></div>
             </div>
 
             <div class="d-flex">

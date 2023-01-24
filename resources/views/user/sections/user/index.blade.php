@@ -220,7 +220,7 @@
 
       uploadBtn.addEventListener('click', () => {
         inputPicture.click();
-      })
+      });
 
       inputPicture.addEventListener('change', () => {
         const oFReader = new FileReader();
@@ -229,13 +229,15 @@
         oFReader.onload = function(oFREvent) {
           image.src = oFREvent.target.result;
         }
-      })
+      });
 
-      removeBtn.addEventListener('click', () => {
-        image.src = '/img/default.png';
+      if (removeBtn) {
+        removeBtn.addEventListener('click', () => {
+          image.src = '/img/default.png';
 
-        document.getElementById('removeImage').checked = true;
-      })
+          document.getElementById('removeImage').checked = true;
+        });
+      }
     </script>
   @endpush
 
