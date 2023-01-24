@@ -23,7 +23,7 @@ class CampaignFactory extends Factory
             'slug' => Str::slug($title) . '-' . time(),
             'image' => null,
             'target_amount' => rand(1, 3) * 1000000,
-            'duration' => date('Y-m-d H:i:s', strtotime("+" . rand(1, 6) . "month")),
+            'duration' => date('Y-m-d H:i:s', strtotime("+" . rand(1, 7) . " days")),
             'description' => fake()->text(400),
             'status' => 'open',
         ];
