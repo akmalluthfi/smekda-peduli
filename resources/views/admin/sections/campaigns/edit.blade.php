@@ -32,9 +32,8 @@
                 @enderror
               </div>
               <div class="col-12">
-                <img
-                  src="{{ auth()->user()->picture ? asset('storage/' . auth()->user()->picture) : '/assets/img/card.jpg' }}"
-                  alt="Profile" class="w-100 rounded-3 mb-0 d-block mb-3" style="max-width: 200px" id="preview-image">
+                <img src="{{ asset('storage/' . $campaign->image) }}" alt="Profile"
+                  class="w-100 rounded-3 mb-0 d-block mb-3" style="max-width: 200px" id="preview-image">
 
                 <label for="image" class="form-label">Gambar</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"

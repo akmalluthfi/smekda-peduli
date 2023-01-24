@@ -12,7 +12,7 @@
             class="position-absolute p-1 text-bg-light fw-bold rounded-circle text-center shadow-sm"
             style="top: 15px;left: 15px; width: 32px"><i class="bi bi-arrow-left"></i></a>
 
-          <img src="/assets/img/card.jpg" class="card-img-top" alt="...">
+          <img src="{{ asset('storage/' . $campaign->image) }}" class="card-img-top" alt="{{ $campaign->title }}">
           <div class="card-body">
             <h5 class="card-title">{{ $campaign->title }}</h5>
             <h6 class="fw-bold m-0 color-primary">{{ $campaign->donations_amount }}</h6>

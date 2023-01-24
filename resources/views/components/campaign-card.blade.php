@@ -2,8 +2,7 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-4 col-sm-3 col-lg-2">
-        <img class="img-fluid rounded-start img-responsive"
-          src="{{ $campaign->image ? asset('storage/' . $campaign->image) : '/assets/img/card.jpg' }}"
+        <img class="img-fluid rounded-start img-responsive" src="{{ asset('storage/' . $campaign->image) }}"
           alt="{{ $campaign->title }}">
       </div>
       <div class="col-8 col-sm-9 col-lg-10">

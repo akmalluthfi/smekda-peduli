@@ -14,8 +14,7 @@
               <li class="list-group-item">
                 <div class="row my-2">
                   <img class="col-4 p-0 rounded" alt="user comment profile"
-                    src="{{ $donation->campaign->image ? asset('storage/' . $donation->campaign->image) : '/assets/img/card.jpg' }}"
-                    alt="{{ $donation->campaign->title }}" />
+                    src="{{ asset('storage/' . $donation->campaign->image) }}" alt="{{ $donation->campaign->title }}" />
                   <div class="col">
                     <div class="row h-100">
                       <h6 class="m-0 fw-semibold">

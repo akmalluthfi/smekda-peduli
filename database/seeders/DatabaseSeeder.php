@@ -22,6 +22,12 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
 
+        \App\Models\User::factory()->create([
+            'name' => 'Alfi',
+            'email' => 'alfi@gmail.com',
+            'is_admin' => false
+        ]);
+
         \App\Models\Campaign::factory(20)->create();
 
         \App\Models\Campaign::factory(10)->create([
