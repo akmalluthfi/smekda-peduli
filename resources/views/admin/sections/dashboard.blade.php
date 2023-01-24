@@ -40,7 +40,7 @@
             <h5 class="card-title"><a href="/admin/payments" class="card-title">Jumlah Donasi</a></h5>
             <div class="d-flex align-items-center">
               <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-credit-card"></i>
+                <i class="bi bi-heart-fill"></i>
               </div>
               <div class="ps-3">
                 <h6>{{ $donation_count['total'] }}</h6>
