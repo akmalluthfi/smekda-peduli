@@ -44,6 +44,20 @@ class CampaignController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Campaign  $campaign
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Campaign $campaign)
+    {
+        return view('admin.sections.campaigns.show', [
+            'campaign' => $campaign,
+            'progress' => ($campaign->donations_sum_amount / $campaign->target_amount) * 100
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

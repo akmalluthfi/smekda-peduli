@@ -66,28 +66,28 @@
                     @foreach ($campaigns as $campaign)
                       <tr>
                         <td>
-                          <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
                             {{ $campaign->title }}
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
                             {{ $campaign->formatted_target_amount }}
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
                             {{ $campaign->donations_amount }}
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.edit', $campaign->slug) }}"
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}"
                             class="d-flex align-items-center justify-content-center">
                             {{ $campaign->duration_in_days }}
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
                             @if ($campaign->status === 'open')
                               <span class="badge text-bg-primary">Open</span>
                             @else

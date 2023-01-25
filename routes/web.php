@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
+use App\Http\Controllers\Admin\DonationController as AdminDonationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
@@ -62,5 +63,9 @@ Route::group([
 
     Route::resource('/campaigns', AdminCampaignController::class)->scoped([
         'campaign' => 'slug'
-    ])->except('show');
+    ]);
+
+    Route::name('admin.campaigns.donations.')->group(function () {
+        Route::get('/campaigns/{campaign}/donations', [AdminDonationController::class, 'index'])->name('index');
+    });
 });

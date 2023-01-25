@@ -93,6 +93,9 @@
     </div>
   </section>
 
+@endsection
+
+@push('scripts')
   <script>
     function previewImage() {
       const image = document.getElementById('preview-image');
@@ -106,4 +109,4 @@
       }
     }
   </script>
-@endsection
+@endpush

@@ -33,6 +33,9 @@
   </a>
 
   @include('admin.layouts.foot')
+
+  {{-- My script --}}
+  @stack('scripts')
 </body>
 
 </html>
