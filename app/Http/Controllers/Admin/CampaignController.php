@@ -133,7 +133,7 @@ class CampaignController extends Controller
      */
     public function destroy(Campaign $campaign)
     {
-        if ($campaign->image) {
+        if ($campaign->image !== 'campaings-image/card.jpg') {
             Storage::delete($campaign->image);
         }
 

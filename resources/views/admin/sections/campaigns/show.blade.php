@@ -16,7 +16,12 @@
             <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="btn btn-success">
               <i class="bi bi-pencil-square"></i> Ubah
             </a>
-            <button class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</button>
+            <form class="d-inline-block" action="{{ route('campaigns.destroy', $campaign->slug) }}" method="POST"
+              id="form-delete">
+              @csrf
+              @method('delete')
+              <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i> Hapus</button>
+            </form>
           </div>
         </div>
 
@@ -59,3 +64,29 @@
     </div>
   </section>
 @endsection
+
+@push('scripts')
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const formDelete = document.getElementById('form-delete');
+    console.log("halo");
+
+    if (formDelete) {
+      formDelete.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+          title: 'Apakah anda yakin mau menghapus ?',
+          showCancelButton: true,
+          confirmButtonColor: '#dc241a',
+          cancelButtonColor: '#adb5bd',
+          confirmButtonText: 'Hapus!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            formDelete.submit();
+          }
+        });
+      });
+    }
+  </script>
+@endpush
