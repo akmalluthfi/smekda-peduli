@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCampaignRequest;
+use App\Http\Requests\UpdateCampaignRequest;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CampaignController extends Controller
 {
@@ -68,28 +70,6 @@ class CampaignController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Campaign  $campaign
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Campaign $campaign)
-    {
-        $donations = $campaign->donations()->paginate(5)->fragment('donation');
-
-        // $donations = Donation::where('campaign_id', $campaign->id)
-        //     ->with('user:id,name', 'payment:id,method')
-        //     ->paginate(5)
-        //     ->fragment('donation');
-
-        return view('admin.sections.campaigns.show', [
-            'campaign' => $campaign,
-            'donations' => $donations,
-            'progress' => ($campaign->donations_sum_amount / $campaign->target_amount) * 100
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Campaign  $campaign
@@ -109,9 +89,26 @@ class CampaignController extends Controller
      * @param  \App\Models\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Campaign $campaign)
+    public function update(UpdateCampaignRequest $request, Campaign $campaign)
     {
-        //
+        $validatedData = $request->validated();
+
+        if ($validatedData['title'] !== $campaign->title) {
+            $validatedData['slug'] = Str::slug($validatedData['title']) . '-' . time();
+        }
+
+        if ($request->has('image')) {
+            if ($campaign->image !== 'campaings-image/card.jpg') {
+                Storage::delete($campaign->image);
+            }
+            $validatedData['image'] = $request->file('image')->store('campaings-image');
+        }
+
+        $campaign->update($validatedData);
+
+        return redirect()
+            ->route('campaigns.edit', $campaign->slug)
+            ->with('success', 'Campaign berhasil diubah');
     }
 
     /**

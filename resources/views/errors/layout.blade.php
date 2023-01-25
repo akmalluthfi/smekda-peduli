@@ -29,7 +29,7 @@
         <h1>@yield('code')</h1>
         <h2>@yield('message')</h2>
         <a class="btn" href="@yield('location', Request::is('admin*') ? '/admin' : '/')">Back to home</a>
-        <img src="/assets/img/not-found.svg" class="img-fluid py-5" alt="Page Not Found" />
+        <img src="/img/not-found.svg" class="img-fluid py-5" alt="Page Not Found" />
       </section>
     </div>
   </main>
