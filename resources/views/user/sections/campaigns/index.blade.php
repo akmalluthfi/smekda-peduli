@@ -14,10 +14,14 @@
 
   <section class="campaings">
     <div class="row">
-      {{-- Campaign Card --}}
-      @foreach ($campaigns as $campaign)
-        <x-campaign-card :$campaign />
-      @endforeach
+      @if ($campaigns->count())
+        {{-- Campaign Card --}}
+        @foreach ($campaigns as $campaign)
+          <x-campaign-card :$campaign />
+        @endforeach
+      @else
+        <h6 class="text-center py-5 text-black-50">Tidak ada campaign yang tersedia.</h6>
+      @endif
     </div>
 
     {{-- Paginate --}}
