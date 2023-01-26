@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="pagetitle">
-    <h1>Create Campaign</h1>
+    <h1>Buat Campaign</h1>
   </div>
   {{-- End Page Title --}}
 
@@ -30,9 +30,12 @@
                 @enderror
               </div>
               <div class="col-12">
+                <img alt="Profile" class="w-100 rounded-3 mb-0 d-block mb-3 d-none" style="max-width: 200px"
+                  id="preview-image">
+
                 <label for="image" class="form-label">Gambar</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                  name="image" required>
+                  name="image" required onchange="previewImage()">
                 @error('image')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -75,3 +78,21 @@
     </div>
   </section>
 @endsection
+
+@push('scripts')
+  <script>
+    function previewImage() {
+      const image = document.getElementById('preview-image');
+      const inputPicture = document.getElementById('image');
+
+      image.classList.remove('d-none');
+
+      const oFReader = new FileReader();
+      oFReader.readAsDataURL(inputPicture.files[0]);
+
+      oFReader.onload = function(oFREvent) {
+        image.src = oFREvent.target.result;
+      }
+    }
+  </script>
+@endpush
