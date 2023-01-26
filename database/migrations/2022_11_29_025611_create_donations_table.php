@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('amount');
             $table->string('snap_token')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('campaign_id');
-            $table->foreignId('comment_id')->nullable();
+            $table->foreignId('campaign_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('comment_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

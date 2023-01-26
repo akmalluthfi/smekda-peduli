@@ -22,7 +22,6 @@ return new class extends Migration
             $table->date('duration');
             $table->text('description');
             $table->enum('status', ['open', 'close']);
-            $table->softDeletes();
             $table->timestamps();
         });
     }

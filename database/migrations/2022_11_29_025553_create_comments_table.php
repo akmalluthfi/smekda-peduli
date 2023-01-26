@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('as_anonymous');
             $table->string('body')->nullable();
-            $table->foreignId('campaign_id');
+            $table->foreignId('campaign_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
