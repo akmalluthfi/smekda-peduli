@@ -23,8 +23,6 @@ class DonationFactory extends Factory
             'status' => fake()->randomElement(['success', 'pending', 'failed']),
             'amount' => fake()->randomElement([10, 30, 50, 75, 100]) * 1000,
             'user_id' => null,
-            'campaign_id' => rand(1, 20),
-            'comment_id' => Comment::factory()->create()->id
         ];
     }
 }

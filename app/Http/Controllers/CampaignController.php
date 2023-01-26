@@ -28,9 +28,7 @@ class CampaignController extends Controller
 
     public function show(Request $request, Campaign $campaign)
     {
-        $comments = $campaign->comments()->whereHas('donation', function (Builder $query) {
-            $query->where('status', 'success');
-        })->latest();
+        $comments = $campaign->comments()->whereRelation('donation', 'status', 'success')->latest();
 
         return view('user.sections.campaigns.show', [
             'campaign' => $campaign,

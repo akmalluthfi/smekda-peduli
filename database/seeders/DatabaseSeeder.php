@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Campaign;
+use App\Models\Comment;
+use App\Models\Donation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,20 +32,24 @@ class DatabaseSeeder extends Seeder
             'is_admin' => false
         ]);
 
-        \App\Models\Campaign::factory(20)->create();
+        for ($i = 0; $i < 10; $i++) {
+            $campaign = Campaign::factory()->create();
 
-        \App\Models\Campaign::factory(10)->create([
-            'status' => 'close'
-        ]);
+            for ($j = 0; $j < rand(3, 10); $j++) {
+                if (fake()->boolean()) {
+                    $comment = Comment::factory()->create(['campaign_id' => $campaign->id]);
 
-        \App\Models\Donation::factory(100)
-            ->create();
-
-        \App\Models\Donation::factory(100)
-            ->create([
-                'email' => null,
-                'name' => null,
-                'user_id' => rand(1, 10),
-            ]);
+                    Donation::factory()->create([
+                        'campaign_id' => $campaign->id,
+                        'comment_id' => $comment->id
+                    ]);
+                } else {
+                    Donation::factory()->create([
+                        'campaign_id' => $campaign->id,
+                        'comment_id' => null
+                    ]);
+                }
+            }
+        }
     }
 }

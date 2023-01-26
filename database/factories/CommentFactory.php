@@ -19,7 +19,7 @@ class CommentFactory extends Factory
         return [
             'as_anonymous' => fake()->boolean(),
             'body' => fake()->paragraph(2, true),
-            'campaign_id' => rand(1, 20),
+            'campaign_id' => null
         ];
     }
 }

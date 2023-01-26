@@ -50,7 +50,9 @@ class Campaign extends Model
     public function resolveRouteBinding($value, $field = null)
     {
         return $this->where('slug', $value)
-            ->withCount('donations')
+            ->withCount(['donations' => function (Builder $query) {
+                $query->where('status', 'success');
+            }])
             ->withDonationsAmount()
             ->firstOrFail();
     }
