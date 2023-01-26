@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="pagetitle">
-    <h1>Detail Campaign</h1>
+    <h1>Ubah Campaign</h1>
   </div>
   {{-- End Page Title --}}
 
@@ -22,14 +22,9 @@
         <div class="card">
           <div class="card-body">
             <div class="card-title d-flex align-items-center">
-              <a href="{{ route('campaigns.index') }}" class="link-secondary me-3"><i class="bi bi-arrow-left"></i></a>
+              <a href="{{ route('campaigns.show', $campaign->slug) }}" class="link-secondary me-3"><i
+                  class="bi bi-arrow-left"></i></a>
               <h5 class="m-0">Ubah Campaign</h5>
-
-              @if ($campaign->status === 'open')
-                <span class="badge bg-primary ms-auto text-white">Open</span>
-              @else
-                <span class="badge bg-warning ms-auto text-black">Closed</span>
-              @endif
             </div>
 
             <form class="row g-3" method="POST" action="{{ route('campaigns.update', $campaign->slug) }}"

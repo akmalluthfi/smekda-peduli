@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('target_amount');
             $table->date('duration');
             $table->text('description');
-            $table->enum('status', ['open', 'completed']);
+            $table->enum('status', ['open', 'close']);
             $table->softDeletes();
             $table->timestamps();
         });

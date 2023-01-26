@@ -85,18 +85,18 @@ class Campaign extends Model
     }
 
     /**
-     * Scope a query to get status completed.
+     * Scope a query to get status close.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return void
      */
-    public function scopeCompleted(Builder $query)
+    public function scopeClose(Builder $query)
     {
-        return $query->where('status', 'completed');
+        return $query->where('status', 'close');
     }
 
     /**
-     * Scope a query to get status completed.
+     * Scope a query to get search by title
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return void

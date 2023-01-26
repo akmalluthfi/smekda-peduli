@@ -26,7 +26,7 @@
           <select name="s" class="form-select shadow-none">
             <option selected value="all">All</option>
             <option value="open" @selected(request('s') === 'open')>Open</option>
-            <option value="completed" @selected(request('s') === 'completed')>Completed</option>
+            <option value="close" @selected(request('s') === 'close')>Close</option>
           </select>
         </ul>
         <input type="text" name="q" class="form-control shadow-none" placeholder="Search..."
@@ -57,7 +57,7 @@
                     <th scope="col">Judul</th>
                     <th scope="col">Dibutuhkan</th>
                     <th scope="col">Terkumpul</th>
-                    <th scope="col">Waktu (hari)</th>
+                    <th scope="col" class="text-center">Waktu (hari)</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -71,12 +71,14 @@
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}"
+                            class="d-flex align-items-center text-nowrap">
                             {{ $campaign->formatted_target_amount }}
                           </a>
                         </td>
                         <td>
-                          <a href="{{ route('campaigns.show', $campaign->slug) }}" class="d-flex align-items-center">
+                          <a href="{{ route('campaigns.show', $campaign->slug) }}"
+                            class="d-flex align-items-center text-nowrap">
                             {{ $campaign->donations_amount }}
                           </a>
                         </td>

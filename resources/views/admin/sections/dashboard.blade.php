@@ -25,8 +25,8 @@
                   <span class="text-primary small fw-bold">{{ $campaigns['open'] }}</span>
                   <span class="text-muted small ps-1">Open</span>
                   <div class="vr mx-2"></div>
-                  <span class="text-success small fw-bold">{{ $campaigns['completed'] }}</span>
-                  <span class="text-muted small ps-1">Completed</span>
+                  <span class="text-success small fw-bold">{{ $campaigns['open'] }}</span>
+                  <span class="text-muted small ps-1">Close</span>
                 </div>
               </div>
             </div>

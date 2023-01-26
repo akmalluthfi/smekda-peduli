@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Campaign::factory(20)->create();
 
         \App\Models\Campaign::factory(10)->create([
-            'status' => 'completed'
+            'status' => 'close'
         ]);
 
         \App\Models\Donation::factory(100)

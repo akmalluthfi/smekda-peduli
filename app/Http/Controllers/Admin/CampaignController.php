@@ -29,8 +29,8 @@ class CampaignController extends Controller
             $campaigns->open();
         }
 
-        if ($request->query('s') === 'completed') {
-            $campaigns->completed();
+        if ($request->query('s') === 'close') {
+            $campaigns->close();
         }
 
         return view('admin.sections.campaigns.index', [

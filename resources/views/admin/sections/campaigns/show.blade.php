@@ -32,7 +32,9 @@
 
           <img src="{{ asset('storage/' . $campaign->image) }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{{ $campaign->title }}</h5>
+            <div class="d-flex justify-content-between align-items-center py-3">
+              <h5 class="card-title m-0 p-0">{{ $campaign->title }}</h5>
+            </div>
             <h6 class="fw-bold m-0 color-primary">{{ $campaign->donations_amount }}</h6>
             <small>Terkumpul dari <span class="fw-bold">{{ $campaign->formatted_target_amount }}</span></small>
 
@@ -69,7 +71,6 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     const formDelete = document.getElementById('form-delete');
-    console.log("halo");
 
     if (formDelete) {
       formDelete.addEventListener('submit', (e) => {

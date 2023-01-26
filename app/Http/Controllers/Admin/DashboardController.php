@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $completed_campaings = Campaign::completed()->count();
+        $close_campaings = Campaign::close()->count();
         $open_campaigns = Campaign::open()->count();
 
         $donation_success = Donation::where('status', 'success');
@@ -20,9 +20,9 @@ class DashboardController extends Controller
 
         return view('admin.sections.dashboard', [
             'campaigns' => [
-                'total' => $completed_campaings + $open_campaigns,
+                'total' => $close_campaings + $open_campaigns,
                 'open' => $open_campaigns,
-                'completed' => $completed_campaings
+                'close' => $close_campaings
             ],
             'donation_count' => [
                 'total'  => $donation_success->count() + $donation_other,
