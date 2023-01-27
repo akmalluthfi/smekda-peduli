@@ -67,7 +67,11 @@ class Campaign extends Model
 
     public function getDurationInDaysAttribute()
     {
-        return (new Carbon($this->duration))->diffInDays();
+        if ($this->duration->lte(now())) {
+            return '-';
+        }
+
+        return $this->duration->diffInDays();
     }
 
     /**

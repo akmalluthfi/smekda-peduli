@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('user.sections.home', [
-            'campaigns' => Campaign::latest()->withDonationsAmount()->limit(8)->get(),
+            'campaigns' => Campaign::open()->latest()->withDonationsAmount()->limit(8)->get(),
         ]);
     }
 }
