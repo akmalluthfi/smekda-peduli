@@ -13,15 +13,19 @@
             Donatur
           </a>
           <div>
-            <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="btn btn-success">
-              <i class="bi bi-pencil-square"></i> Ubah
-            </a>
-            <form class="d-inline-block" action="{{ route('campaigns.destroy', $campaign->slug) }}" method="POST"
-              id="form-delete">
-              @csrf
-              @method('delete')
-              <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i> Hapus</button>
-            </form>
+            @if ($campaign->status === 'open')
+              <a href="{{ route('campaigns.edit', $campaign->slug) }}" class="btn btn-success">
+                <i class="bi bi-pencil-square"></i> Ubah
+              </a>
+            @endif
+            @if ($campaign->status === 'close')
+              <form class="d-inline-block" action="{{ route('campaigns.destroy', $campaign->slug) }}" method="POST"
+                id="form-delete">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i> Hapus</button>
+              </form>
+            @endif
           </div>
         </div>
 

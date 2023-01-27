@@ -91,6 +91,8 @@ class CampaignController extends Controller
      */
     public function edit(Campaign $campaign)
     {
+        if ($campaign->status === 'close') abort(403);
+
         return view('admin.sections.campaigns.edit', [
             'campaign' => $campaign
         ]);
@@ -133,6 +135,8 @@ class CampaignController extends Controller
      */
     public function destroy(Campaign $campaign)
     {
+        if ($campaign->status === 'open') abort(403);
+
         if ($campaign->image !== 'campaings-image/card.jpg') {
             Storage::delete($campaign->image);
         }
