@@ -30,11 +30,13 @@
               <div class="col-auto">{{ $campaign->duration_in_days }} <small>hari</small></div>
             </div>
 
-            <div class="d-flex">
-              <button class="btn btn-outline-primary me-3" id="btn-share"><i class="bi bi-link-45deg"></i></button>
-              <a href="{{ route('campaigns.donations.index', $campaign->slug) }}" class="btn btn-blue w-100">Donasi
-                Sekarang</a>
-            </div>
+            @if ($campaign->status === 'open')
+              <div class="d-flex">
+                <button class="btn btn-outline-primary me-3" id="btn-share"><i class="bi bi-link-45deg"></i></button>
+                <a href="{{ route('campaigns.donations.index', $campaign->slug) }}" class="btn btn-blue w-100">Donasi
+                  Sekarang</a>
+              </div>
+            @endif
           </div>
         </div>
 

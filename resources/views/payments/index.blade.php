@@ -28,7 +28,7 @@
   <header class="bg-white py-3 shadow-sm fixed-top">
     <div class="container-fluid d-flex align-items-center" style="max-width: 36rem">
       <h3 class="m-0 me-3">
-        <a class="link-dark" href="#" onclick="history.back()">
+        <a class="link-dark" href="{{ route('user.campaigns.show', $donation->campaign->slug) }}">
           <i class="bi bi-arrow-left"></i>
         </a>
       </h3>

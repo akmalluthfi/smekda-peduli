@@ -12,6 +12,8 @@ class DonationController extends Controller
 {
     public function index(Campaign $campaign)
     {
+        if ($campaign->status === 'close') return abort(404);
+
         return view('donations.index', [
             'campaign' => $campaign
         ]);
