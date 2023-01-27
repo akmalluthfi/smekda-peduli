@@ -32,24 +32,9 @@ class DatabaseSeeder extends Seeder
             'is_admin' => false
         ]);
 
-        for ($i = 0; $i < 10; $i++) {
-            $campaign = Campaign::factory()->create();
-
-            for ($j = 0; $j < rand(3, 10); $j++) {
-                if (fake()->boolean()) {
-                    $comment = Comment::factory()->create(['campaign_id' => $campaign->id]);
-
-                    Donation::factory()->create([
-                        'campaign_id' => $campaign->id,
-                        'comment_id' => $comment->id
-                    ]);
-                } else {
-                    Donation::factory()->create([
-                        'campaign_id' => $campaign->id,
-                        'comment_id' => null
-                    ]);
-                }
-            }
-        }
+        $this->call([
+            OpenCampaignSeeder::class,
+            CloseCampaignSeeder::class
+        ]);
     }
 }
