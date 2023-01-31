@@ -12,7 +12,7 @@
 
 {{-- Vendor CSS Files --}}
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/icons/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 {{-- Template Main CSS File --}}
 <link rel="stylesheet" href="/css/main.css">
