@@ -68,6 +68,7 @@ Route::group([
 
     Route::name('admin.campaigns.donations.')->group(function () {
         Route::get('/campaigns/{campaign}/donations', [AdminDonationController::class, 'index'])->name('index');
+        Route::get('/campaigns/{campaign}/donations/export', [AdminDonationController::class, 'export'])->name('export');
     });
 });
 

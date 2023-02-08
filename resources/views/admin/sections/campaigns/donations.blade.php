@@ -22,7 +22,9 @@
       <div class="col col-sm-11 col-md-10 col-xl-8">
 
         <div class="text-end">
-          <button class="btn btn-blue mb-3"><i class="bi bi-download me-2"></i>Download as .xls</button>
+          <a href="{{ route('admin.campaigns.donations.export', $campaign->slug) }}" class="btn btn-blue mb-3"><i
+              class="bi bi-download me-2"></i>Download as
+            .xls</a>
         </div>
 
         <div class="card">

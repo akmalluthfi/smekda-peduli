@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DonationsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DonationController extends Controller
 {
@@ -16,5 +18,10 @@ class DonationController extends Controller
             'campaign' => $campaign,
             'donations' => $donations->paginate()
         ]);
+    }
+
+    public function export(Request $request, Campaign $campaign)
+    {
+        return Excel::download(new DonationsExport($campaign), 'donations.xlsx');
     }
 }
