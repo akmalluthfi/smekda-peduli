@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-    --bg-body: #f6f9ff;
+    --bg-body: rgb(249 250 251);
     --color-body: #444444;
     --color-primary: #012970;
     scroll-behavior: smooth;
