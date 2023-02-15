@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
@@ -75,3 +76,5 @@ Route::group([
 Route::get('cronjobs/run', function () {
     Artisan::call('schedule:run');
 });
+
+Route::get('faq', [FAQController::class, 'index']);
