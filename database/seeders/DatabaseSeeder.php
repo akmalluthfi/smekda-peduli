@@ -2,11 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\Campaign;
-use App\Models\Comment;
-use App\Models\Donation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,7 +29,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             OpenCampaignSeeder::class,
-            CloseCampaignSeeder::class
+            CloseCampaignSeeder::class,
+            FAQSeeder::class
         ]);
     }
 }
