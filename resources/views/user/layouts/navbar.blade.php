@@ -70,9 +70,9 @@
             @endif
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/help">
+              <a class="dropdown-item d-flex align-items-center" href="/faq">
                 <i class="bi bi-question-circle me-2"></i>
-                <span>Bantuan</span>
+                <span>FAQs</span>
               </a>
             </li>
             <li>
