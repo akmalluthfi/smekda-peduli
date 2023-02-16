@@ -1241,7 +1241,7 @@ button.color-primary:hover:active {
     padding: 0.5rem;
 }
 
-.table-link td {
+.table-link td:not(.table-link.with-padding td) {
     padding: 0;
 }
 

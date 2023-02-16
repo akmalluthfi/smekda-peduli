@@ -73,7 +73,7 @@ Route::group([
         Route::get('/campaigns/{campaign}/donations/export', [AdminDonationController::class, 'export'])->name('export');
     });
 
-    Route::resource('/faqs', AdminFAQController::class);
+    Route::resource('/faqs', AdminFAQController::class)->except('show');
 });
 
 Route::get('cronjobs/run', function () {

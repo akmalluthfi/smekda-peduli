@@ -1,6 +1,6 @@
 @extends('admin.main')
 
-@section('title', 'Campaigns')
+@section('title', 'FAQs')
 
 @section('content')
   <div class="pagetitle">
@@ -30,11 +30,12 @@
           <div class="card-body p-3">
 
             <div class="table-responsive">
-              <table class="table table-hover table-link">
+              <table class="table table-hover table-link with-padding">
                 <thead>
                   <tr>
                     <th scope="col">Pertanyaan</th>
                     <th scope="col">Jawaban</th>
+                    <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -42,14 +43,22 @@
                     @foreach ($faqs as $faq)
                       <tr>
                         <td>
-                          <a href="{{ route('faqs.show', $faq->id) }}" class="d-flex align-items-center">
-                            {{ $faq->question }}
-                          </a>
+                          {{ $faq->question }}
                         </td>
                         <td>
-                          <a href="{{ route('faqs.show', $faq->id) }}" class="d-flex align-items-center">
-                            {{ $faq->answer }}
-                          </a>
+                          {{ $faq->answer }}
+                        </td>
+                        <td>
+                          <div class="d-flex flex-nowrap">
+                            <a href="{{ route('faqs.edit', $faq->id) }}" class="btn badge text-bg-warning me-2"><i
+                                class="bi bi-pencil-square align-text-bottom"></i></a>
+                            <form action="{{ route('faqs.destroy', $faq->id) }}" method="POST" class="d-inline">
+                              @csrf
+                              @method('delete')
+                              <button class="btn badge text-bg-danger h-100"><i
+                                  class="bi bi-trash align-text-bottom"></i></button>
+                            </form>
+                          </div>
                         </td>
                       </tr>
                     @endforeach
