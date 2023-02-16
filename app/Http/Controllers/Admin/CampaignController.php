@@ -80,7 +80,7 @@ class CampaignController extends Controller
 
         Campaign::create($validatedData);
 
-        return redirect('/admin/campaigns')->with('success', 'Campaign create successfully');
+        return redirect('/admin/campaigns')->with('success', 'Campaign berhasil dibuat');
     }
 
     /**
@@ -143,6 +143,6 @@ class CampaignController extends Controller
 
         $campaign->delete();
 
-        return redirect('/admin/campaigns')->with('success', 'Campaign delete successfully');
+        return redirect('/admin/campaigns')->with('success', 'Campaign berhasil dihapus');
     }
 }
