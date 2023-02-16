@@ -15,5 +15,12 @@
       </a>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link {{ Request::is('admin/faqs*') ? 'active' : '' }}" href="/admin/faqs">
+        <i class="bi bi-flag"></i>
+        <span>FAQs</span>
+      </a>
+    </li>
+
   </ul>
 </aside>

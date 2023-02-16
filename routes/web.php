@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\DonationController as AdminDonationController;
+use App\Http\Controllers\Admin\FAQController as AdminFAQController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
@@ -71,6 +72,8 @@ Route::group([
         Route::get('/campaigns/{campaign}/donations', [AdminDonationController::class, 'index'])->name('index');
         Route::get('/campaigns/{campaign}/donations/export', [AdminDonationController::class, 'export'])->name('export');
     });
+
+    Route::resource('/faqs', AdminFAQController::class);
 });
 
 Route::get('cronjobs/run', function () {
