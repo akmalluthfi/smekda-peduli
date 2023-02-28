@@ -19,7 +19,19 @@ class CampaignController extends Controller
      */
     public function index(Request $request)
     {
-        $campaigns = Campaign::latest()->withDonationsAmount();
+        $campaigns = Campaign::withDonationsAmount();
+
+        if ($request->query('durationSort')) {
+            $durationSort = $request->query('durationSort');
+
+            if ($durationSort == 'latest') {
+                $campaigns->latest('duration');
+            } else if ($durationSort == 'oldest') {
+                $campaigns->oldest('duration');
+            }
+        } else {
+            $campaigns->latest();
+        }
 
         if ($request->query('q')) {
             $campaigns->search($request->query('q'));

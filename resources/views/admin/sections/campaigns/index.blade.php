@@ -22,12 +22,21 @@
         <button class="btn  border color-primary bg-white dropdown-toggle shadow-none" type="button"
           data-bs-toggle="dropdown" aria-expanded="false"><span class="d-none d-sm-inline-block">Filters</span></button>
         <ul class="dropdown-menu p-3">
-          <label for="s" class="form-label">Status</label>
-          <select name="s" class="form-select shadow-none">
-            <option selected value="all">All</option>
-            <option value="open" @selected(request('s') === 'open')>Open</option>
-            <option value="close" @selected(request('s') === 'close')>Close</option>
-          </select>
+          <li class="mb-2">
+            <label for="s" class="form-label">Status</label>
+            <select name="s" class="form-select shadow-none">
+              <option selected value="all">All</option>
+              <option value="open" @selected(request('s') === 'open')>Open</option>
+              <option value="close" @selected(request('s') === 'close')>Close</option>
+            </select>
+          </li>
+          <li>
+            <label for="durationSort" class="form-label">Sort by Day</label>
+            <select name="durationSort" class="form-select shadow-none">
+              <option selected value="latest">Terlama</option>
+              <option value="oldest" @selected(request('durationSort') === 'oldest')>Terbaru</option>
+            </select>
+          </li>
         </ul>
         <input type="text" name="q" class="form-control shadow-none" placeholder="Search..."
           value="{{ request('q') }}">
