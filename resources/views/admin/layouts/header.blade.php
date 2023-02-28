@@ -1,8 +1,9 @@
-<header id="header" class="header fixed-top d-flex align-items-center justify-content-between">
+<header id="header"
+  class="header fixed-top d-flex align-items-center justify-content-between bg-dark-blue navbar-dark">
 
   <a href="/" class="logo d-flex align-items-center order-1 order-lg-0">
     <img src="/apple-touch-icon.png" alt="Logo Smekda Peduli" />
-    <span class="">Smekda Peduli</span>
+    <span class="text-white">Smekda Peduli</span>
   </a>
 
   <i class="bi bi-list toggle-sidebar-btn order-0 order-lg-1 ps-0 ps-lg-2"></i>

@@ -415,7 +415,8 @@ a.card-title:hover {
     font-size: 32px;
     padding-left: 10px;
     cursor: pointer;
-    color: #012970;
+    /* color: #012970; */
+    color: white;
 }
 
 .search-bar {
@@ -480,7 +481,8 @@ a.card-title:hover {
 }
 
 .nav-profile {
-    color: #012970;
+    /* color: #012970; */
+    color: white;
 }
 
 .nav-profile img {
@@ -1293,15 +1295,18 @@ button.color-primary:hover:active {
 
 /* navbar */
 .navbar-nav .nav-link {
-    color: var(--text-color);
+    /* color: var(--text-color); */
+    color: white;
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--dark-blue);
+    /* color: var(--dark-blue); */
+    color: var(--dark-yellow);
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--dark-blue);
+    /* color: var(--dark-blue); */
+    color: var(--dark-yellow);
 }
 
 .navbar .profile-toogle::after {
