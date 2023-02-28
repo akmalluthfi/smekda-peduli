@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\DonationController as AdminDonationController;
 use App\Http\Controllers\Admin\FAQController as AdminFAQController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
@@ -74,6 +75,10 @@ Route::group([
     });
 
     Route::resource('/faqs', AdminFAQController::class)->except('show');
+
+    Route::resource('/comments', AdminCommentController::class)->except(
+        ['edit', 'store', 'create', 'update']
+    );
 });
 
 Route::get('cronjobs/run', function () {

@@ -16,8 +16,15 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-link {{ Request::is('admin/comments*') ? 'active' : '' }}" href="/admin/comments">
+        <i class="bi bi-chat-left-dots-fill"></i>
+        <span>Comment</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-link {{ Request::is('admin/faqs*') ? 'active' : '' }}" href="/admin/faqs">
-        <i class="bi bi-flag"></i>
+        <i class="bi bi-question-circle"></i>
         <span>FAQs</span>
       </a>
     </li>
