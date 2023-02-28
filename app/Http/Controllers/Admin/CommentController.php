@@ -16,7 +16,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $donations = Donation::has('comment')->with('comment', 'user', 'campaign')->paginate();
+        $donations = Donation::has('comment')->where('status', 'success')->with('comment', 'user', 'campaign')->paginate();
 
         return view('admin.sections.comments.index', [
             'donations' => $donations
