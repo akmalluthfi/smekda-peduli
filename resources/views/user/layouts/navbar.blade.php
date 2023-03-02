@@ -27,8 +27,8 @@
 
     <div class="order-2 order-md-3">
       @guest
-        <a href="/login" class="btn btn-outline-blue">Masuk</a>
-        <a href="/registration" class="btn btn-blue d-none d-md-inline-block ms-2">Daftar</a>
+        <a href="/login" class="btn btn-outline-light">Masuk</a>
+        <a href="/registration" class="btn btn-blue border d-none d-md-inline-block ms-2">Daftar</a>
       @endguest
 
       @auth
